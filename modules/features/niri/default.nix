@@ -10,6 +10,7 @@
     environment.systemPackages = with pkgs;[
       kitty
       wl-clipboard
+      xwayland-satellite
     ];
 
     home-manager.users."${username}" = { config, ... }: {      

@@ -9,8 +9,10 @@
     });
   in
   {
-    # environment.systemPackages = [ pkgs.noctalia-shell ];
-    environment.systemPackages = [ custom-noctalia ];
+    environment.systemPackages = [
+      custom-noctalia
+      pkgs.python3
+    ];
     
     home-manager.users."${username}" = { config, ... }: {
       home.file.".config/noctalia/settings.json".source = 

@@ -33,6 +33,7 @@
           fullclear = "printf '\\033[2J\\033[3J\\033[H'";
           rebuild = "sudo nixos-rebuild switch --flake ${flakeDir}";
           clean = "sudo nix-collect-garbage -d && rebuild";
+          testik = "echo 'test'";
         };
 
         syntaxHighlighting.styles = {

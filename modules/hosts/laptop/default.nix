@@ -2,7 +2,6 @@
   flake.nixosConfigurations.laptop = inputs.nixpkgs.lib.nixosSystem {
     modules = [
       inputs.sops-nix.nixosModules.sops
-      self.nixosModules.defaultConfiguration
       self.nixosModules.laptopConfiguration
     ];
   };
