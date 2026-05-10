@@ -80,5 +80,5 @@ flake.nixosModules.wayland = { config, pkgs, ... }: {
     noto-fonts-color-emoji
     font-awesome
   ];
-  
+};
 }
