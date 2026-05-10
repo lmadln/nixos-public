@@ -1,0 +1,46 @@
+format = '''[\[](bold green)$username$hostname $directory[\]](bold green)$git_branch$git_status$nix_shell$character'''
+
+add_newline = false
+
+[username]
+show_always = true
+style_user = "bold green"
+format = '[$user]($style)'
+
+[hostname]
+ssh_only = false
+style = "bold green"
+format = '[@$hostname]($style)'
+
+[directory]
+style = "bold blue"
+truncation_length = 3
+truncate_to_repo = true
+format = '[$path]($style)'
+
+[character]
+success_symbol = '[\$](bold green)'
+error_symbol = '[\$](bold red)'
+
+[git_branch]
+symbol = "  "
+style = "bold magenta"
+format = '[$symbol$branch]($style)'
+
+[git_status]
+style = "bold red"
+format = '([\[$all_status$ahead_behind\] ]($style))'
+
+[nix_shell]
+symbol = " "
+style = "bold blue"
+format = ' via [$symbol]($style)'
+
+[cmd_duration]
+min_time = 500
+style = "bold yellow"
+format = ' t:[$duration]($style)'
+
+
+
+

@@ -1,0 +1,166 @@
+// Window rules let you adjust behavior for individual windows.
+// Find more information on the wiki:
+// https://yalter.github.io/niri/Configuration:-Window-Rules
+
+// Block out password managers from screen capture
+window-rule {
+    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+    match app-id=r#"^org\.gnome\.World\.Secrets$"#
+    match app-id="Bitwarden"
+
+    block-out-from "screen-capture"
+}
+
+// Block out notifications from screen capture
+layer-rule {
+    match namespace="noctalia-notifications-DP-1"
+
+    block-out-from "screen-capture"
+}
+
+
+
+// Default
+window-rule {
+    geometry-corner-radius 10
+    clip-to-geometry true
+    draw-border-with-background false
+}
+
+// Kitty: general
+window-rule {
+    match app-id="kitty"
+
+    default-column-width { proportion 0.33334; }
+    opacity 0.85
+    background-effect {
+        blur true
+        xray true
+    }
+}
+
+// Kitty: floating
+window-rule {
+    match app-id="kitty"
+    exclude is-floating=false
+    opacity 0.6
+    background-effect {
+        xray false
+    }
+}
+
+// Maximized programs
+window-rule {
+    match app-id="code-oss"
+    match app-id="firefox"
+    match app-id="steam"
+
+    open-maximized true
+    default-column-width { proportion 1.0; }
+}
+
+// Floating class
+window-rule {
+    match app-id="floating"
+
+    open-floating true
+    default-column-width { proportion 0.33334; }
+    default-window-height { proportion 0.5; }
+}
+
+// Startup: misc
+window-rule {
+    match app-id="v2rayN"
+    match app-id="Spotify"
+    match app-id="com.github.wwmm.easyeffects"
+    exclude at-startup=false
+
+    open-on-workspace "special"
+    default-column-width { proportion 0.5; }
+}
+
+// Startup: kitty
+window-rule {
+    match app-id="kitty"
+    exclude at-startup=false
+
+    open-floating true
+    open-on-workspace "1"
+    default-column-width { proportion 0.6; }
+    default-window-height { proportion 0.4; }
+    default-floating-position x=50 y=50 relative-to="top-left"
+}
+
+// Startup: librewolf
+window-rule {
+    match app-id="librewolf"
+    exclude at-startup=false
+
+    open-on-workspace "1"
+    default-column-width { proportion 1.0; }
+    open-maximized true
+}
+
+// New Librewolf windows
+window-rule {
+    match app-id="librewolf" title="^LibreWolf$"
+    
+    open-floating true
+}
+
+// Floating windows
+window-rule {
+    match app-id="com.gabm.satty" // Satty (screenshot editor)
+    match app-id="hyprland-share-picker" // OBS Studio window
+    match app-id="python3" title="^Figure" // Python matplotlib window
+
+    open-floating true
+}
+
+// Browser popups
+window-rule {
+    match app-id="firefox"
+    match app-id="librewolf"
+
+    popups {
+        geometry-corner-radius 5
+        opacity 0.6
+        background-effect {
+            blur true
+        }
+    }
+}
+
+// Browser picture-in-picture
+window-rule {
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    match app-id=r#"librewolf$"# title="^Picture-in-Picture$"
+
+    open-floating true
+    default-column-width { proportion 0.4; }
+    default-window-height { proportion 0.4; }
+}
+
+window-rule {
+    match is-window-cast-target=true
+
+    focus-ring {
+        active-color "#f38ba8"
+        inactive-color "#7d0d2d"
+    }
+
+    border {
+        active-color "#f38ba8"
+        inactive-color "#7d0d2d"
+    }
+
+    shadow {
+        color "#7d0d2d70"
+    }
+}
+
+
+
+
+
+

@@ -1,0 +1,88 @@
+// This config is in the KDL format: https://kdl.dev
+// "/-" comments out the following node.
+// Check the wiki for a full description of the configuration:
+// https://yalter.github.io/niri/Configuration:-Introduction
+
+
+include "conf.d/outputs.kdl"
+include "conf.d/inputs.kdl"
+include "conf.d/layout.kdl"
+include "conf.d/startup.kdl"
+include "conf.d/animations.kdl"
+include "conf.d/windowrules.kdl"
+include "conf.d/binds.kdl"
+
+// environment {
+//     QT_QPA_PLATFORMTHEME "qt6ct"
+// }
+
+prefer-no-csd
+
+xwayland-satellite {
+    // off
+    path "xwayland-satellite"
+}
+
+cursor {
+    xcursor-theme "Vimix-cursors"
+    xcursor-size 16
+    // hide-when-typing
+    hide-after-inactive-ms 30000
+}
+
+overview {
+    zoom 0.5
+    backdrop-color "#222"
+    workspace-shadow {
+        softness 30
+        spread 10
+        offset x=0 y=10
+        color "#00000050"
+    }
+}
+
+blur {
+    passes 4        // more passes = stronger blur (default: 3)
+    offset 2.0      // sample distance per pass (default: 3.0)
+    noise 0.02      // grain overlay (default: 0.02)
+    saturation 1.0  // color saturation boost (default: 1.5)
+}
+
+clipboard {
+    disable-primary
+}
+
+workspace "1" {
+    open-on-output "eDP-1"
+}
+workspace "2" {
+    open-on-output "eDP-1"
+}
+workspace "3" {
+    open-on-output "eDP-1"
+}
+workspace "4" {
+    open-on-output "eDP-1"
+}
+workspace "5" {
+    open-on-output "eDP-1"
+}
+workspace "6" {
+    open-on-output "eDP-1"
+}
+workspace "7" {
+    open-on-output "eDP-1"
+}
+workspace "8" {
+    open-on-output "eDP-1"
+}
+workspace "9" {
+    open-on-output "eDP-1"
+}
+workspace "special" {
+    open-on-output "eDP-1"
+}
+
+
+
+include "./noctalia.kdl"
