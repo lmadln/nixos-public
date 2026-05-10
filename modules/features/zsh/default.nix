@@ -43,13 +43,24 @@
           "unknown-token" = "fg=131";
           "path" = "fg=248";
         };
-
+        
         initContent = ''
           setopt correct
+          
+          unsetopt flow_control
+          stty -ixon
           
           bindkey "''${key[Up]}" up-line-or-search
           bindkey "''${key[Down]}" down-line-or-search
           
+          bindkey "^[[H" beginning-of-line
+          bindkey "^[[F" end-of-line
+          bindkey "^[[1~" beginning-of-line
+          bindkey "^[[4~" end-of-line
+          bindkey "^[OH" beginning-of-line
+          bindkey "^[OF" end-of-line
+          bindkey "^[[3~" delete-char
+                    
           bindkey "^[[1;5C" forward-word
           bindkey "^[[1;5D" backward-word
           
