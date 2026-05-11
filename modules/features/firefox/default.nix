@@ -1,10 +1,22 @@
 { self, inputs, ... }: {
   flake.nixosModules.firefox = { pkgs, lib, config, ... }: {
     nixpkgs.overlays = [ inputs.nur.overlays.default ];
-
-    home-manager.users."${config.custom.username}" = { pkgs, ... }: {
+    
+    home-manager.users."${config.custom.username}" = { pkgs, config, ... }: {
+      home.packages = with pkgs; [
+        pywalfox-native
+      ];
+      
+      home.activation.installPywalfox = config.lib.dag.entryAfter ["writeBoundary"] ''
+        $DRY_RUN_CMD ${pkgs.pywalfox-native}/bin/pywalfox --browser firefox install
+      '';
+      
       programs.firefox = {
         enable = true;
+        
+        nativeMessagingHosts = with pkgs; [
+          pywalfox-native
+        ];
         
         profiles.nixos = {
           isDefault = true;
@@ -12,11 +24,15 @@
           extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
             ublock-origin
             darkreader
+            pywalfox
           ];
           
           settings = {
             "extensions.autoDisableScopes" = 0;
             "extensions.enabledScopes" = 15;
+
+            "sidebar.revamp" = true;
+            "sidebar.verticalTabs" = true;
             
             "browser.startup.page" = 3;
             "browser.zoom.siteSpecific" = true;

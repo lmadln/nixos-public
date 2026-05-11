@@ -1,18 +1,43 @@
 { self, inputs, ... }: {
   flake.nixosModules.librewolf = { pkgs, lib, config, ... }: {
     home-manager.users."${config.custom.username}" = { pkgs, ... }: {
+      home.packages = with pkgs; [
+        pywalfox-native
+      ];
+            
       programs.librewolf = {
         enable = true;
+        
+        nativeMessagingHosts = with pkgs; [
+          pywalfox-native
+        ];
+        
+        policies = {
+          Cookies = {
+            Allow =[
+              "https://google.com"
+              "https://accounts.google.com"
+              "https://youtube.com"
+              "https://telegram.com"
+              "https://web.telegram.com"
+            ];
+          };
+        };
         
         profiles.nixos = {
           isDefault = true;
           
           extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
             darkreader
+            pywalfox
+            multi-account-containers
           ];
           
           settings = {
             "browser.startup.page" = 3;
+            
+            "sidebar.revamp" = true;
+            "sidebar.verticalTabs" = true;
             
             "extensions.autoDisableScopes" = 0;
             "extensions.enabledScopes" = 15;
@@ -39,6 +64,11 @@
             "dom.security.https_only_mode" = true;
             "datareporting.healthreport.uploadEnabled" = false;
             "toolkit.telemetry.enabled" = false;
+            
+            "privacy.clearOnShutdown.cookies" = false;
+            "network.cookie.lifetimePolicy" = 0;
+            
+            "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
           };
           
           search = {
