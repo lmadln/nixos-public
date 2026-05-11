@@ -31,8 +31,24 @@
         platformTheme.name = "adwaita";
         style.name = "adwaita-dark";
       };
-
-      # Todo(?): zsh, git, ssh
+      
+      xdg.mimeApps = {
+        enable = true;
+        
+        defaultApplications = {
+          "image/jpeg" = [ "imv.desktop" "feh.desktop" "librewolf.desktop" ];
+          "image/png"  = [ "imv.desktop" "librewolf.desktop" ];
+          
+          "video/mp4"  = [ "mpv.desktop" "librewolf.desktop" ];
+          "video/mkv"  = [ "mpv.desktop" "librewolf.desktop" ];
+          
+          "application/pdf" = [ "librewolf.desktop" ];
+          
+          "text/html" = [ "librewolf.desktop" ];
+          "x-scheme-handler/http"  = [ "librewolf.desktop" ];
+          "x-scheme-handler/https" = [ "librewolf.desktop" ];
+        };
+      };
     };
   };
 }
