@@ -11,7 +11,6 @@
     };
 
     environment.systemPackages = with pkgs; [
-      yazi
       nix-zsh-completions
     ];
 
@@ -63,15 +62,6 @@
                     
           bindkey "^[[1;5C" forward-word
           bindkey "^[[1;5D" backward-word
-          
-          function y() {
-            local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
-            yazi "$@" --cwd-file="$tmp"
-            if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-              builtin cd -- "$cwd"
-            fi
-            rm -f -- "$tmp"
-          }
         '';
       };
 

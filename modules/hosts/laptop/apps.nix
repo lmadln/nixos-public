@@ -7,6 +7,7 @@
       self.nixosModules.obs-studio
       self.nixosModules.vscode
       self.nixosModules.kitty
+      self.nixosModules.yazi
   ];
   
   environment.systemPackages = with pkgs; [
