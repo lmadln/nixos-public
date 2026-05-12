@@ -71,11 +71,6 @@
   
     # Enable networking
     networking.networkmanager.enable = true;
-
-    networking.firewall.checkReversePath = false;
-
-    networking.proxy.default = "127.0.0.1:10808";
-    networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
             
     # Set your time zone.
     time.timeZone = "Europe/Moscow";
