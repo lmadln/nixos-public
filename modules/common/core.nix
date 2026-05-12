@@ -59,7 +59,7 @@
     users.users.${config.custom.username} = {
       isNormalUser = true;
       description = "alex";
-      extraGroups = [ "networkmanager" "wheel" "keyd" ];
+      extraGroups = [ "networkmanager" "wheel" "keyd" "v2ray" ];
       hashedPasswordFile = config.sops.secrets."user_password".path;
     };
     
@@ -71,7 +71,12 @@
   
     # Enable networking
     networking.networkmanager.enable = true;
-    
+
+    networking.firewall.checkReversePath = false;
+
+    networking.proxy.default = "127.0.0.1:10808";
+    networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+            
     # Set your time zone.
     time.timeZone = "Europe/Moscow";
     

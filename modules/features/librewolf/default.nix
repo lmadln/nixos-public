@@ -31,6 +31,7 @@
             darkreader
             pywalfox
             multi-account-containers
+            bitwarden
           ];
           
           settings = {
@@ -69,6 +70,11 @@
             "network.cookie.lifetimePolicy" = 0;
             
             "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+            
+            "network.proxy.type" = 1;
+            "network.proxy.socks" = "127.0.0.1";
+            "network.proxy.socks_port" = 10808;
+            "network.proxy.socks_remote_dns" = true;
           };
           
           search = {

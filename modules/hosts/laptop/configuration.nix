@@ -11,7 +11,7 @@ flake.nixosModules.laptopConfiguration = { config, pkgs, ... }: {
     self.nixosModules.niri
     self.nixosModules.noctalia
   ];
-
+  
   networking.hostName = "laptop";
   
   # laptop stuff  

@@ -25,6 +25,7 @@
             ublock-origin
             darkreader
             pywalfox
+            bitwarden
           ];
           
           settings = {
@@ -50,6 +51,11 @@
             "datareporting.healthreport.uploadEnabled" = false;
             "toolkit.telemetry.enabled" = false;
             "geo.enabled" = false;
+            
+            "network.proxy.type" = 1;
+            "network.proxy.socks" = "127.0.0.1";
+            "network.proxy.socks_port" = 10808;
+            "network.proxy.socks_remote_dns" = true;
           };
           
           search = {

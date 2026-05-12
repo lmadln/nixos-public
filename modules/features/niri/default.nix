@@ -3,6 +3,9 @@
   let
     username = config.custom.username;
     flakeDir = "/home/${username}/nixos";
+    
+    scriptContents = builtins.readFile ./scripts/toggle_workspace.sh;
+    toggle_workspace_script = pkgs.writeShellScriptBin "toggle_workspace" scriptContents;
   in
   {
     programs.niri.enable = true;
@@ -11,6 +14,8 @@
       kitty
       wl-clipboard
       xwayland-satellite
+      
+      toggle_workspace_script
     ];
 
     home-manager.users."${username}" = { config, ... }: {      

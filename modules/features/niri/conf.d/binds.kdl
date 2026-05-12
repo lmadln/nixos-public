@@ -89,7 +89,7 @@ binds {
     Mod+8 hotkey-overlay-title=null { focus-workspace "8"; }
     Mod+9 hotkey-overlay-title=null { focus-workspace "9"; }
 
-    Mod+S hotkey-overlay-title=null { spawn-sh "~/.config/niri/scripts/toggle_workspace.sh \"special\""; }
+    Mod+S hotkey-overlay-title=null { spawn-sh "toggle_workspace \"special\""; }
 
     Mod+Alt+1 hotkey-overlay-title=null { move-column-to-workspace "1"; }
     Mod+Alt+2 hotkey-overlay-title=null { move-column-to-workspace "2"; }

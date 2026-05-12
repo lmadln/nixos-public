@@ -9,9 +9,6 @@
     home-manager.users."${username}" = { config, ... }: {
       home.file.".config/kitty/kitty.conf".source = 
         config.lib.file.mkOutOfStoreSymlink "/home/${username}/nixos/modules/features/kitty/kitty.conf";
-      
-      #home.file.".config/kitty/colors.conf".source = 
-      #  config.lib.file.mkOutOfStoreSymlink "/home/${username}/nixos/modules/features/kitty/colors.conf";
     };
   };
 }
