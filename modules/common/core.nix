@@ -32,16 +32,16 @@
     nix.settings.auto-optimise-store = true;
     services.fstrim.enable = true;
   
-    # Bootloader.
-    boot.loader.systemd-boot.enable = false;
-    boot.loader.efi.canTouchEfiVariables = true;
-    boot.loader.grub = {
-      enable = true;
-      device = "nodev";
-      efiSupport = true;
-          
-      useOSProber = true;
-    };
+    # Bootloader
+    boot.loader.systemd-boot.enable = true; # false;
+    #boot.loader.efi.canTouchEfiVariables = true;
+    #boot.loader.grub = {
+    #  enable = true;
+    #  device = "nodev";
+    #  efiSupport = true;
+    #      
+    #  useOSProber = true;
+    #};
     boot.loader.timeout = 15;
     
     sops = {
@@ -59,7 +59,7 @@
     users.users.${config.custom.username} = {
       isNormalUser = true;
       description = "alex";
-      extraGroups = [ "networkmanager" "wheel" "keyd" "v2ray" ];
+      extraGroups = [ "networkmanager" "wheel" "keyd" ];
       hashedPasswordFile = config.sops.secrets."user_password".path;
     };
     
@@ -94,10 +94,11 @@
     nix.gc = {
       automatic = true;
       dates = "weekly";
-      options = "--delete-older-than 30d";
+      options = "--delete-older-than 14d";
     };
-  
-  
+    
+    programs.dconf.enable = true;
+    
     
     system.stateVersion = "25.11";
   };

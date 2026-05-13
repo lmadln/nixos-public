@@ -1,10 +1,10 @@
 keys:
-  #- &pc 
+  - &pc age1hgmrnhngz329kh3tfrcc63stpeqhwm3zcc77y5y2yzv3wecr9avqrtc6hc
   - &laptop age1fxpryf540tnmjwzqw6syx3jh342x0qver7kteceks7n9dwv399sq3ry9sm
 
 creation_rules:
   - path_regex: secrets/.*\.yaml$
     key_groups:
       - age:
-          #- *pc
+          - *pc
           - *laptop

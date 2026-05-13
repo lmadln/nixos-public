@@ -22,6 +22,9 @@
       home.file.".config/niri/config.kdl".source = 
         config.lib.file.mkOutOfStoreSymlink "${flakeDir}/modules/features/niri/config.kdl";
       
+      home.file.".config/niri/noctalia.kdl".source = 
+        config.lib.file.mkOutOfStoreSymlink "${flakeDir}/modules/features/niri/noctalia.kdl";
+      
       xdg.configFile."niri/conf.d".source = 
         config.lib.file.mkOutOfStoreSymlink "${flakeDir}/modules/features/niri/conf.d";
     };
