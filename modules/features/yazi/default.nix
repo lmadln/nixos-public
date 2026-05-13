@@ -29,6 +29,11 @@
                     { run = ''vim "$@"''; block = true; desc = "Vim"; }
                     { run = ''codium "$@"''; block = true; desc = "VSCode"; }
                 ];
+                view_pdf = [
+                    { run = ''atril "$@"''; block = true; desc = "Atril"; }
+                    { run = ''librewolf "$@"''; block = true; desc = "Librewolf"; }
+                    { run = ''firefox "$@"''; block = true; desc = "Firefox"; }
+                ];
                 open_folder = [
                     { run = ''codium "$@"''; block = true; desc = "VSCode"; }
                 ];
@@ -60,6 +65,8 @@
                   { mime = "image/*"; use = [ "system" "reveal" "show_exif" ]; }
                   { mime = "video/*"; use = [ "system" "reveal" "show_exif" ]; }
                   { mime = "audio/*"; use = [ "system" "reveal" "show_exif" ]; }
+                  
+                  { mime = "application/pdf"; use = [ "view_pdf" "system" "reveal" "show_exif" ]; }
                   
                   { url = "*"; use =[ "system" "reveal" "show_exif" ]; }
                 ];

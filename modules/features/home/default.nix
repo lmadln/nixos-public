@@ -44,7 +44,7 @@
           "video/mp4"  = [ "mpv.desktop" "librewolf.desktop" ];
           "video/mkv"  = [ "mpv.desktop" "librewolf.desktop" ];
           
-          "application/pdf" = [ "librewolf.desktop" ];
+          "application/pdf" = [ "atril.desktop" "librewolf.desktop" ];
           
           "text/html" = [ "librewolf.desktop" ];
           "x-scheme-handler/http"  = [ "librewolf.desktop" ];
