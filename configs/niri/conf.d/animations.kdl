@@ -1,0 +1,6 @@
+animations {
+    workspace-switch {
+        // off
+        spring damping-ratio=1.5 stiffness=5000 epsilon=0.0001
+    }
+}

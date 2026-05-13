@@ -1,4 +1,4 @@
-{ self, inputs, ... }: {
+{ self, inputs, hostDir, ... }: {
 
 flake.nixosModules.pcConfiguration = { config, pkgs, ... }: {
   imports = [

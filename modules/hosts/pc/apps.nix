@@ -15,6 +15,8 @@
         spotify
         godot
         bitwarden-desktop
+        easyeffects
+        atril # .pdf, .djvu viewer
     ];
   };
 }

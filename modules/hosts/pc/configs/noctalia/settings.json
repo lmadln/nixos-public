@@ -625,11 +625,11 @@
             },
             {
                 "enabled": true,
-                "id": "pywalfox"
+                "id": "code"
             },
             {
                 "enabled": true,
-                "id": "code"
+                "id": "pywalfox"
             }
         ],
         "enableUserTheming": false

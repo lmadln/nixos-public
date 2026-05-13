@@ -29,6 +29,7 @@
           
           extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
             darkreader
+            ublock-origin
             pywalfox
             multi-account-containers
             bitwarden

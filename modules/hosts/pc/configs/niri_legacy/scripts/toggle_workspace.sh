@@ -7,5 +7,3 @@ if [ "$CURRENT_WORKSPACE" = $1 ]; then
 else
     niri msg action focus-workspace $1
 fi
-
-notify-send "Deprecated"
