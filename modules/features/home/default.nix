@@ -4,6 +4,8 @@
 
     home-manager.useGlobalPkgs = true;
     home-manager.useUserPackages = true;
+    
+    home-manager.backupFileExtension = "backup";
 
     home-manager.users."${config.custom.username}" = { pkgs, ... }: {
       home.stateVersion = "26.05";

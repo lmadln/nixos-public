@@ -7,10 +7,6 @@
         pywalfox-native
       ];
       
-      home.activation.installPywalfox = config.lib.dag.entryAfter ["writeBoundary"] ''
-        $DRY_RUN_CMD ${pkgs.pywalfox-native}/bin/pywalfox --browser firefox install
-      '';
-      
       programs.firefox = {
         enable = true;
         
