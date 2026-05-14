@@ -18,8 +18,8 @@
               "https://google.com"
               "https://accounts.google.com"
               "https://youtube.com"
-              "https://telegram.com"
-              "https://web.telegram.com"
+              "https://telegram.org"
+              "https://web.telegram.org"
             ];
           };
         };
