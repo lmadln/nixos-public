@@ -5,6 +5,7 @@ flake.nixosModules.pcConfiguration = { config, pkgs, ... }: {
     self.nixosModules.core
     
     self.nixosModules.wayland
+    self.nixosModules.commonApps
     self.nixosModules.pcApps
     
     self.nixosModules.niri

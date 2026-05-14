@@ -124,13 +124,16 @@
             ],
             "right": [
                 {
-                    "deviceNativePath": "__default__",
-                    "displayMode": "graphic-clean",
-                    "hideIfIdle": false,
-                    "hideIfNotDetected": true,
-                    "id": "Battery",
-                    "showNoctaliaPerformance": false,
-                    "showPowerProfiles": false
+                    "displayMode": "onhover",
+                    "iconColor": "none",
+                    "id": "Bluetooth",
+                    "textColor": "none"
+                },
+                {
+                    "displayMode": "alwaysHide",
+                    "iconColor": "none",
+                    "id": "Network",
+                    "textColor": "none"
                 },
                 {
                     "displayMode": "alwaysShow",
@@ -138,6 +141,15 @@
                     "id": "Volume",
                     "middleClickCommand": "pwvucontrol || pavucontrol",
                     "textColor": "none"
+                },
+                {
+                    "deviceNativePath": "__default__",
+                    "displayMode": "icon-always",
+                    "hideIfIdle": false,
+                    "hideIfNotDetected": true,
+                    "id": "Battery",
+                    "showNoctaliaPerformance": true,
+                    "showPowerProfiles": true
                 },
                 {
                     "displayMode": "forceOpen",
@@ -252,6 +264,12 @@
                 },
                 {
                     "id": "KeepAwake"
+                },
+                {
+                    "id": "WiFi"
+                },
+                {
+                    "id": "Bluetooth"
                 }
             ]
         }
@@ -262,7 +280,7 @@
         "gridSnapScale": false,
         "monitorWidgets": [
             {
-                "name": "DP-1",
+                "name": "eDP-1",
                 "widgets": [
                 ]
             }
@@ -347,10 +365,10 @@
         "language": "",
         "lockOnSuspend": true,
         "lockScreenAnimations": true,
-        "lockScreenBlur": 1,
+        "lockScreenBlur": 0.8,
         "lockScreenCountdownDuration": 10000,
         "lockScreenMonitors": [
-            "DP-1"
+            "eDP-1"
         ],
         "lockScreenTint": 0.8,
         "passwordChars": false,
@@ -476,7 +494,7 @@
         ],
         "location": "bottom",
         "monitors": [
-            "DP-1"
+            "eDP-1"
         ],
         "overlayLayer": true
     },
@@ -591,6 +609,10 @@
             },
             {
                 "enabled": true,
+                "id": "steam"
+            },
+            {
+                "enabled": true,
                 "id": "yazi"
             },
             {
@@ -608,17 +630,13 @@
             {
                 "enabled": true,
                 "id": "pywalfox"
-            },
-            {
-                "enabled": true,
-                "id": "steam"
             }
         ],
         "enableUserTheming": false
     },
     "ui": {
         "boxBorderEnabled": false,
-        "fontDefault": "JetBrainsMono Nerd Font",
+        "fontDefault": "Sans Serif",
         "fontDefaultScale": 1,
         "fontFixed": "monospace",
         "fontFixedScale": 1,
@@ -636,118 +654,6 @@
         "enableMultiMonitorDirectories": false,
         "enabled": true,
         "favorites": [
-            {
-                "appearance": "dark",
-                "colorScheme": "Noctalia (default)",
-                "darkMode": true,
-                "generationMethod": "tonal-spot",
-                "paletteColors": [
-                    "#b9ace3",
-                    "#b7b2c4",
-                    "#d2aab7",
-                    "#dfa7a0"
-                ],
-                "path": "/home/alex/Pictures/wallpapers/wallpaper6.png",
-                "useWallpaperColors": true
-            },
-            {
-                "appearance": "dark",
-                "colorScheme": "Noctalia (default)",
-                "darkMode": true,
-                "generationMethod": "tonal-spot",
-                "paletteColors": [
-                    "#a3a563",
-                    "#b0af99",
-                    "#99b5aa",
-                    "#dfa7a0"
-                ],
-                "path": "/home/alex/Pictures/wallpapers/wallpaper2.jpg",
-                "useWallpaperColors": true
-            },
-            {
-                "appearance": "dark",
-                "colorScheme": "Noctalia (default)",
-                "darkMode": true,
-                "generationMethod": "tonal-spot",
-                "paletteColors": [
-                    "#acb0e3",
-                    "#b3b3c5",
-                    "#ccabc0",
-                    "#dfa7a0"
-                ],
-                "path": "/home/alex/Pictures/wallpapers/wallpaper23.png",
-                "useWallpaperColors": true
-            },
-            {
-                "appearance": "dark",
-                "colorScheme": "Noctalia (default)",
-                "darkMode": true,
-                "generationMethod": "tonal-spot",
-                "paletteColors": [
-                    "#a2b4e0",
-                    "#afb4c3",
-                    "#c5acc4",
-                    "#dfa7a0"
-                ],
-                "path": "/home/alex/Pictures/wallpapers/wallpaper9.png",
-                "useWallpaperColors": true
-            },
-            {
-                "appearance": "dark",
-                "colorScheme": "Noctalia (default)",
-                "darkMode": true,
-                "generationMethod": "tonal-spot",
-                "paletteColors": [
-                    "#dea79d",
-                    "#cbada8",
-                    "#bcac89",
-                    "#dfa7a0"
-                ],
-                "path": "/home/alex/Pictures/wallpapers/wallpaper17.png",
-                "useWallpaperColors": true
-            },
-            {
-                "appearance": "dark",
-                "colorScheme": "Noctalia (default)",
-                "darkMode": true,
-                "generationMethod": "tonal-spot",
-                "paletteColors": [
-                    "#a2b4d4",
-                    "#b0b3be",
-                    "#bfadc1",
-                    "#dfa7a0"
-                ],
-                "path": "/home/alex/Pictures/wallpapers/wallpaper18.png",
-                "useWallpaperColors": true
-            },
-            {
-                "appearance": "dark",
-                "colorScheme": "Noctalia (default)",
-                "darkMode": true,
-                "generationMethod": "tonal-spot",
-                "paletteColors": [
-                    "#a9b3e2",
-                    "#b1b3c4",
-                    "#c9abc1",
-                    "#dfa7a0"
-                ],
-                "path": "/home/alex/Pictures/wallpapers/wallpaper13.png",
-                "useWallpaperColors": true
-            },
-            {
-                "appearance": "dark",
-                "colorScheme": "Noctalia (default)",
-                "darkMode": true,
-                "generationMethod": "tonal-spot",
-                "paletteColors": [
-                    "#bbace3",
-                    "#b7b1c4",
-                    "#d3aab6",
-                    "#dfa7a0"
-                ],
-                "path": "/home/alex/Pictures/wallpapers/wallpaper27.png",
-                "useWallpaperColors": true
-            }
         ],
         "fillColor": "#000000",
         "fillMode": "crop",
