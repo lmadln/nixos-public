@@ -73,6 +73,7 @@ window-rule {
     match app-id="v2rayN"
     match app-id="Spotify"
     match app-id="com.github.wwmm.easyeffects"
+    match app-id="pot"
     exclude at-startup=false
 
     open-on-workspace "special"
@@ -81,8 +82,7 @@ window-rule {
 
 // Startup: kitty
 window-rule {
-    match app-id="kitty"
-    exclude at-startup=false
+    match app-id="kitty" app-id="opening"
 
     open-floating true
     open-on-workspace "1"
@@ -104,6 +104,14 @@ window-rule {
 // New Librewolf windows
 window-rule {
     match app-id="librewolf" title="^LibreWolf$"
+    
+    open-floating true
+}
+
+// Pot (translator) non-startup windows
+window-rule {
+    match app-id="pot"
+    exclude at-startup=true
     
     open-floating true
 }

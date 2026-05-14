@@ -7,15 +7,13 @@
 // spawn-at-startup "qs" "-c" "noctalia-shell"
 spawn-at-startup "noctalia-shell"
 
-// spawn-at-startup "easyeffects"
-// spawn-at-startup "spotify-launcher"
-// spawn-at-startup "v2rayN"
+spawn-at-startup "easyeffects"
+spawn-at-startup "spotify"
+spawn-at-startup "v2rayN"
 
-// spawn-sh-at-startup "kitty --hold fastfetch"
+spawn-at-startup "flatpak run com.pot_app.pot"
 
-
-// To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
-// spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
+spawn-sh-at-startup "kitty --hold --app-id \"kitty opening\" fastfetch"
 
 hotkey-overlay {
     // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.

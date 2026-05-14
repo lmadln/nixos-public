@@ -227,6 +227,8 @@ binds {
     Alt+Print hotkey-overlay-title="Screenshot Window" { screenshot-window; }
     Ctrl+Print hotkey-overlay-title="Screenshot and Scan Text" { spawn-sh "grim -g \"$(slurp)\" - | tesseract - - -l rus+eng | wl-copy && notify-send -u low \"OCR\" \"Text has been copied\""; }
 
+    Mod+Alt+T { spawn "bash" "-c" "mkdir -p ~/.var/app/com.pot_app.pot/cache/com.pot-app.desktop && rm -f ~/.var/app/com.pot_app.pot/cache/com.pot-app.desktop/pot_screenshot_cut.png && grim -g \"$(slurp)\" ~/.var/app/com.pot_app.pot/cache/com.pot-app.desktop/pot_screenshot_cut.png && curl -s \"127.0.0.1:60828/ocr_translate?screenshot=false\""; }
+
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
     // Session controls
