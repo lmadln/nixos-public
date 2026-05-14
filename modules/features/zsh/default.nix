@@ -3,6 +3,7 @@
   let
     username = config.custom.username;
     flakeDir = "/home/${username}/nixos";
+    hostName = config.networking.hostName;
   in
   {
     environment.variables = {
@@ -30,9 +31,8 @@
 
         shellAliases = {
           fullclear = "printf '\\033[2J\\033[3J\\033[H'";
-          rebuild = "sudo nixos-rebuild switch --flake ${flakeDir}";
+          rebuild = "sudo nixos-rebuild switch --flake ~/nixos#${hostName}";
           clean = "sudo nix-collect-garbage -d && rebuild";
-          testik = "echo 'test'";
         };
 
         syntaxHighlighting.styles = {

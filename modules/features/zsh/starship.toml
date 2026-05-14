@@ -14,22 +14,22 @@ format = '[@$hostname]($style)'
 
 [directory]
 style = "bold blue"
-truncation_length = 3
-truncate_to_repo = true
+# truncation_length = 3
+# truncate_to_repo = true
 format = '[$path]($style)'
 
 [character]
 success_symbol = '[\$](bold green)'
-error_symbol = '[\$](bold red)'
+error_symbol = '[\$](bold green)'
 
 [git_branch]
-symbol = "  "
-style = "bold magenta"
-format = '[$symbol$branch]($style)'
+symbol = ""
+style = "bold yellow"
+format = '([\[$branch\]]($style))'
 
 [git_status]
 style = "bold red"
-format = '([\[$all_status$ahead_behind\] ]($style))'
+format = '([\[$all_status$ahead_behind\]]($style))'
 
 [nix_shell]
 symbol = " "
