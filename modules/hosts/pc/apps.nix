@@ -18,5 +18,21 @@
         easyeffects
         atril # .pdf, .djvu viewer
     ];
+    
+    services.flatpak = {
+      enable = true;
+      
+      remotes = [
+        { name = "flathub"; location = "https://dl.flathub.org/repo/flathub.flatpakrepo"; }
+      ];
+      
+      packages = [
+        "com.pot_app.pot"
+      ];
+      
+      # update.onActivation = true;
+      
+      uninstallUnmanaged = true; 
+    };
   };
 }

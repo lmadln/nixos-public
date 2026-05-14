@@ -16,6 +16,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
+    
     nur.url = "github:nix-community/NUR";
     
     vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
