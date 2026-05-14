@@ -30,7 +30,7 @@
                     { run = ''codium "$@"''; block = true; desc = "VSCode"; }
                 ];
                 view_pdf = [
-                    { run = ''atril "$@"''; block = true; desc = "Atril"; }
+                    { run = ''atril "$@" & disown''; block = true; desc = "Atril"; }
                     { run = ''librewolf "$@"''; block = true; desc = "Librewolf"; }
                     { run = ''firefox "$@"''; block = true; desc = "Firefox"; }
                 ];
