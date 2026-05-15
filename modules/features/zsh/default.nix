@@ -44,8 +44,6 @@
         };
         
         initContent = ''
-          setopt correct
-          
           unsetopt flow_control
           stty -ixon
           
