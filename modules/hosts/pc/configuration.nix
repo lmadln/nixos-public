@@ -3,6 +3,7 @@
 flake.nixosModules.pcConfiguration = { config, pkgs, ... }: {
   imports = [
     self.nixosModules.core
+    self.nixosModules.base
     
     self.nixosModules.wayland
     self.nixosModules.commonApps

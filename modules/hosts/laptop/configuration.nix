@@ -2,8 +2,8 @@
 
 flake.nixosModules.laptopConfiguration = { config, pkgs, ... }: {
   imports = [
-    self.nixosModules.laptopHardware
     self.nixosModules.core
+    self.nixosModules.base
     
     self.nixosModules.wayland
     self.nixosModules.laptopApps
