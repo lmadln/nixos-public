@@ -4,7 +4,10 @@
     ];
     
     environment.systemPackages = with pkgs; [
-      abiword
+      spotify
+      easyeffects
+      atril # [.pdf, .djvu] viewer
+      abiword # [.docx] editor
     ];
   };
 }

@@ -12,11 +12,8 @@
     ];
     
     environment.systemPackages = with pkgs; [
-        spotify
         godot
         bitwarden-desktop
-        easyeffects
-        atril # .pdf, .djvu viewer
     ];
     
     services.flatpak = {

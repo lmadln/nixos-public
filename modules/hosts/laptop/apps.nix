@@ -12,8 +12,6 @@
     ];
     
     environment.systemPackages = with pkgs; [
-        telegram-desktop
-        spotify
         godot
         bitwarden-desktop
     ];
