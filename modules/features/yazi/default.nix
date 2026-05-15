@@ -27,15 +27,19 @@
                 edit_text = [
                     { run = ''nano "$@"''; block = true; desc = "Nano"; }
                     { run = ''vim "$@"''; block = true; desc = "Vim"; }
-                    { run = ''codium "$@"''; block = true; desc = "VSCode"; }
+                    { run = ''codium "$@"''; orphan = true; desc = "VSCode"; }
+                    { run = ''abiword "$@"''; orphan = true; desc = "Abiword"; }
                 ];
                 view_pdf = [
-                    { run = ''atril "$@" & disown''; block = true; desc = "Atril"; }
-                    { run = ''librewolf "$@"''; block = true; desc = "Librewolf"; }
-                    { run = ''firefox "$@"''; block = true; desc = "Firefox"; }
+                    { run = ''atril "$@"''; orphan = true; desc = "Atril"; }
+                    { run = ''librewolf "$@"''; orphan = true; desc = "Librewolf"; }
+                    { run = ''firefox "$@"''; orphan = true; desc = "Firefox"; }
+                ];
+                edit_document = [
+                    { run = ''abiword "$@"''; orphan = true; desc = "Abiword"; }
                 ];
                 open_folder = [
-                    { run = ''codium "$@"''; block = true; desc = "VSCode"; }
+                    { run = ''codium "$@"''; orphan = true; desc = "VSCode"; }
                 ];
                 system =[ { run = "xdg-open \"$@\""; orphan = true; desc = "System default"; } ];
                 reveal =[
@@ -62,11 +66,18 @@
                   { mime = "text/*"; use = [ "edit_text" "reveal" "show_exif" ]; }
                   { mime = "application/json"; use = [ "edit_text" "open_term" "show_exif" ]; }
                   
+                  { mime = "application/pdf"; use = [ "view_pdf" "system" "reveal" "show_exif" ]; }
+                  
+                  { mime = "application/msword"; use = [ "edit_document" "system" "reveal" "show_exif" ]; }
+                  { mime = "application/openxmlformats-officedocument.wordprocessingml.document"; use = [ "edit_document" "system" "reveal" "show_exif" ]; }
+                  { mime = "application/openxmlformats-officedocument.wordprocessingml.template"; use = [ "edit_document" "system" "reveal" "show_exif" ]; }
+                  { mime = "application/oasis.opendocument.text"; use = [ "edit_document" "system" "reveal" "show_exif" ]; }
+                  { mime = "application/rtf"; use = [ "edit_document" "system" "reveal" "show_exif" ]; }
+                  { mime = "text/rtf"; use = [ "edit_document" "system" "reveal" "show_exif" ]; }
+                  
                   { mime = "image/*"; use = [ "system" "reveal" "show_exif" ]; }
                   { mime = "video/*"; use = [ "system" "reveal" "show_exif" ]; }
-                  { mime = "audio/*"; use = [ "system" "reveal" "show_exif" ]; }
-                  
-                  { mime = "application/pdf"; use = [ "view_pdf" "system" "reveal" "show_exif" ]; }
+                  { mime = "audio/*"; use = [ "system" "reveal" "show_exif" ]; }                  
                   
                   { url = "*"; use =[ "system" "reveal" "show_exif" ]; }
                 ];
