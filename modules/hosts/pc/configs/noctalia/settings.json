@@ -649,10 +649,6 @@
             {
                 "enabled": true,
                 "id": "pywalfox"
-            },
-            {
-                "enabled": true,
-                "id": "steam"
             }
         ],
         "enableUserTheming": false
