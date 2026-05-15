@@ -22,6 +22,7 @@
   in
   {
     home-manager.users."${config.custom.username}" = { pkgs, ... }: {
+      programs.direnv.enable = true;
       programs.vscodium = {
         enable = true;
         profiles.default = {
@@ -32,7 +33,7 @@
             ms-python.python
             ms-vscode.cpptools
             marketplace.kdl-org.kdl
-            # marketplace.noctalia.noctaliatheme
+            mkhl.direnv
             patchedNoctaliaTheme
           ];
           
