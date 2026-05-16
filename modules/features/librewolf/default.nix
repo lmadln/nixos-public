@@ -47,7 +47,6 @@
             "beacon.enabled" = false;
             "device.sensors.enabled" = false;
             "dom.battery.enabled" = false;
-            "dom.event.clipboardevents.enabled" = false;
             "geo.enabled" = false;
             "media.peerconnection.enabled" = false;
             "privacy.firstparty.isolate" = true;
