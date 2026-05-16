@@ -12,7 +12,7 @@ flake.nixosModules.pcHardware = { config, lib, pkgs, modulesPath, ... }:
     ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
-  boot.initrd.kernelModules = [ ];
+  boot.initrd.kernelModules = [ "amdgpu" ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
@@ -37,6 +37,7 @@ flake.nixosModules.pcHardware = { config, lib, pkgs, modulesPath, ... }:
   swapDevices = [ ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  hardware.enableRedistributableFirmware = true;
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 };
 }

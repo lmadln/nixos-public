@@ -1,4 +1,4 @@
-{ self, inputs, hostDir, ... }: {
+{ self, inputs, ... }: {
 
 flake.nixosModules.pcConfiguration = { config, pkgs, ... }: {
   imports = [
@@ -6,6 +6,8 @@ flake.nixosModules.pcConfiguration = { config, pkgs, ... }: {
     self.nixosModules.base
     
     self.nixosModules.wayland
+    self.nixosModules.pcWayland
+    
     self.nixosModules.commonApps
     self.nixosModules.pcApps
     
@@ -19,7 +21,7 @@ flake.nixosModules.pcConfiguration = { config, pkgs, ... }: {
   zramSwap.enable = true;
   services.btrfs.autoScrub.enable = true;
   services.btrfs.autoScrub.interval = "monthly";
-  # Snapshots
+  ## Snapshots
   services.snapper.configs = {
     home = {
       SUBVOLUME = "/home";

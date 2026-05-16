@@ -1,4 +1,4 @@
-{ self, inputs, hostDir, ... }: {
+{ self, inputs, ... }: {
 
 flake.nixosModules.laptopConfiguration = { config, pkgs, ... }: {
   imports = [
@@ -6,6 +6,8 @@ flake.nixosModules.laptopConfiguration = { config, pkgs, ... }: {
     self.nixosModules.base
     
     self.nixosModules.wayland
+    self.nixosModules.laptopWayland
+    
     self.nixosModules.commonApps
     self.nixosModules.laptopApps
     
