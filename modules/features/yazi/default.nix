@@ -15,6 +15,12 @@
         extraPackages = with pkgs; [
           exiftool
         ];
+        
+        keymap = {
+          mgr.prepend_keymap = [
+            { on = [ "Y" ]; run  = "shell \"for f in \"$@\"; do echo \"file://$f\"; done | wl-copy -t text/uri-list\" --confirm"; }
+          ];
+        };
 
         settings = {
             mgr = {
