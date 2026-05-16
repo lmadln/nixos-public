@@ -47,8 +47,8 @@
           unsetopt flow_control
           stty -ixon
           
-          bindkey "''${key[Up]}" up-line-or-search
-          bindkey "''${key[Down]}" down-line-or-search
+          bindkey "''${key[Up]}" history-beginning-search-backward
+          bindkey "''${key[Down]}" history-beginning-search-forward
           
           bindkey "^[[H" beginning-of-line
           bindkey "^[[F" end-of-line
