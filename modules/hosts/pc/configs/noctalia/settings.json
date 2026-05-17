@@ -535,7 +535,7 @@
             {
                 "action": "lock",
                 "command": "",
-                "countdownEnabled": false,
+                "countdownEnabled": true,
                 "enabled": true,
                 "keybind": "1"
             },

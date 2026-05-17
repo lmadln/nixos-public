@@ -35,10 +35,10 @@ binds {
     XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
     XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
 
-    XF86AudioPlay        allow-when-locked=true { spawn-sh "playerctl play-pause"; }
-    XF86AudioStop        allow-when-locked=true { spawn-sh "playerctl stop"; }
-    XF86AudioPrev        allow-when-locked=true { spawn-sh "playerctl previous"; }
-    XF86AudioNext        allow-when-locked=true { spawn-sh "playerctl next"; }
+    XF86AudioPlay        allow-when-locked=true { spawn-sh "playerctl --player=spotify,%any play-pause"; }
+    XF86AudioStop        allow-when-locked=true { spawn-sh "playerctl --player=spotify,%any stop"; }
+    XF86AudioPrev        allow-when-locked=true { spawn-sh "playerctl --player=spotify,%any previous"; }
+    XF86AudioNext        allow-when-locked=true { spawn-sh "playerctl --player=spotify,%any next"; }
 
     // Brightness controls
     XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
@@ -222,10 +222,11 @@ binds {
     Mod+N hotkey-overlay-title="Cast Focused Window" { spawn-sh "niri msg action set-dynamic-cast-window --id $(niri msg -j focused-window | jq .id)"; }
 
     // Screenshots
-    Print hotkey-overlay-title="Screenshot" { spawn-sh "grim -g \"$(slurp)\" - | satty --filename -"; }
+    Print hotkey-overlay-title="Screenshot" { spawn-sh "grim -g \"$(slurp)\" - | wl-copy"; }
+    Ctrl+Print hotkey-overlay-title="Screenshot" { spawn-sh "grim -g \"$(slurp)\" - | satty --filename -"; }
     Shift+Print hotkey-overlay-title="Screenshot Screen" { screenshot-screen; }
     Alt+Print hotkey-overlay-title="Screenshot Window" { screenshot-window; }
-    Ctrl+Print hotkey-overlay-title="Screenshot and Scan Text" { spawn-sh "grim -g \"$(slurp)\" - | tesseract - - -l rus+eng | wl-copy && notify-send -u low \"OCR\" \"Text has been copied\""; }
+    Win+Ctrl+Print hotkey-overlay-title="Screenshot and Scan Text" { spawn-sh "grim -g \"$(slurp)\" - | tesseract - - -l rus | wl-copy && notify-send -u low \"OCR\" \"Text has been copied\""; }
 
     Mod+Alt+T { spawn "bash" "-c" "mkdir -p ~/.var/app/com.pot_app.pot/cache/com.pot-app.desktop && rm -f ~/.var/app/com.pot_app.pot/cache/com.pot-app.desktop/pot_screenshot_cut.png && grim -g \"$(slurp)\" ~/.var/app/com.pot_app.pot/cache/com.pot-app.desktop/pot_screenshot_cut.png && curl -s \"127.0.0.1:60828/ocr_translate?screenshot=false\""; }
 
