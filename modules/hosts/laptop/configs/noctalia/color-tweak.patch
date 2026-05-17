@@ -1,1 +1,40 @@
-../../../../../configs/noctalia/color-tweak.patch
+diff --git a/Scripts/python/src/theming/lib/theme.py b/Scripts/python/src/theming/lib/theme.py
+index 871dfc8c5..61ca2192b 100644
+--- a/Scripts/python/src/theming/lib/theme.py
++++ b/Scripts/python/src/theming/lib/theme.py
+@@ -50,10 +50,33 @@ def generate_material_dark(palette: list[Color], scheme_type: str = "tonal-spot"
+     """
+     primary = palette[0] if palette else Color(255, 245, 155)
+
++    # h, s, l = primary.to_hsl()
++    # primary = Color.from_hsl(h, s * 0.4, l * 0.7)
++
+     # Get the appropriate scheme class
+     scheme_class = SCHEME_CLASSES.get(scheme_type, SchemeTonalSpot)
+-    scheme = scheme_class.from_rgb(primary.r, primary.g, primary.b)
+-    return scheme.get_dark_scheme()
++    scheme = scheme_class.from_rgb(primary.r * 0.5, primary.g * 0.5, primary.b * 0.5)
++    dark_scheme = scheme.get_dark_scheme()
++
++    # My tweaks <- 30.04.2026
++
++    for key in dark_scheme:
++        color_obj = Color.from_hex(dark_scheme[key])
++        h, s, l = color_obj.to_hsl()
++
++        if "surface" in key or "background" in key:
++            new_s = s * 0.1
++            new_l = min(1, l * 1.3)
++        else:
++            new_s = s * 0.5
++            new_l = l * 0.9
++
++        if "surface_variant" in key:
++            new_l *= 0.6
++
++        dark_scheme[key] = Color.from_hsl(h, new_s, new_l).to_hex()
++
++    return dark_scheme
+
+
+ def generate_material_light(palette: list[Color], scheme_type: str = "tonal-spot") -> dict[str, str]:
