@@ -8,7 +8,6 @@
       easyeffects
       atril # [.pdf, .djvu] viewer
       abiword # [.docx] editor
-      localsend
     ];
   };
 }
