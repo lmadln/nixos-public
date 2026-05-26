@@ -91,6 +91,8 @@ binds {
 
     Mod+S hotkey-overlay-title=null { spawn-sh "toggle_workspace \"special\""; }
 
+    Mod+D hotkey-overlay-title=null { spawn-sh "niri_panic"; }
+
     Mod+Alt+1 hotkey-overlay-title=null { move-column-to-workspace "1"; }
     Mod+Alt+2 hotkey-overlay-title=null { move-column-to-workspace "2"; }
     Mod+Alt+3 hotkey-overlay-title=null { move-column-to-workspace "3"; }
