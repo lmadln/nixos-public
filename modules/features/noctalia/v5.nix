@@ -1,5 +1,5 @@
 { self, inputs, hostDir, ... }: {
-  flake.nixosModules.noctalia = { pkgs, config, lib, ... }: 
+  flake.nixosModules.noctalia5 = { pkgs, config, lib, ... }: 
   let
     username = config.custom.username;
     
@@ -11,7 +11,7 @@
     
     home-manager.users."${username}" = {
       imports = [
-        inputs.noctalia.homeModules.default
+        inputs.noctalia5.homeModules.default
       ];
 
       programs.noctalia.enable = true;
