@@ -1,56 +1,68 @@
 { self, inputs, ... }: {
-  flake.nixosModules.home-manager = { pkgs, config, ... }: {
-    imports = [ inputs.home-manager.nixosModules.home-manager ];
+  flake.nixosUserModules.home-manager = { pkgs, config, lib, ... }:
+  let
+    cfg = config.myFeatures.home-manager;
+  in {
+    options.myFeatures.home-manager = {
+      enableFor = lib.mkOption {
+        type = lib.types.listOf lib.types.str;
+        default = [];
+        description = "Enable home-manager for given users";
+      };
+    };
 
-    home-manager.useGlobalPkgs = true;
-    home-manager.useUserPackages = true;
+    config = lib.mkIf (cfg.enableFor != []) {
+      home-manager.useGlobalPkgs = true;
+      home-manager.useUserPackages = true;
     
-    home-manager.backupFileExtension = "backup";
+      home-manager.backupFileExtension = "backup";
 
-    home-manager.users."${config.custom.username}" = { pkgs, ... }: {
-      home.stateVersion = "26.05";
+      #home-manager.users."${username}" = { pkgs, ... }: {
+      home-manager.users = lib.genAttrs cfg.enableFor (userName: {
+        home.stateVersion = "26.05";
 
-      dconf.settings = {
-        "org/gnome/desktop/interface" = {
-          color-scheme = "prefer-dark";
+        dconf.settings = {
+          "org/gnome/desktop/interface" = {
+            color-scheme = "prefer-dark";
+          };
         };
-      };
 
-      gtk = {
-        enable = true;
-        theme = {
-          name = "Adwaita-dark";
-          package = pkgs.gnome-themes-extra;
+        gtk = {
+          enable = true;
+          theme = {
+            name = "Adwaita-dark";
+            package = pkgs.gnome-themes-extra;
+          };
+          iconTheme = {
+            name = "Adwaita";
+            package = pkgs.adwaita-icon-theme;
+          };
         };
-        iconTheme = {
-          name = "Adwaita";
-          package = pkgs.adwaita-icon-theme;
-        };
-      };
 
-      qt = {
-        enable = true;
-        platformTheme.name = "adwaita";
-        style.name = "adwaita-dark";
-      };
+        qt = {
+          enable = true;
+          platformTheme.name = "adwaita";
+          style.name = "adwaita-dark";
+        };
       
-      xdg.mimeApps = {
-        enable = true;
-        
-        defaultApplications = {
-          "image/jpeg" = [ "imv.desktop" "feh.desktop" "librewolf.desktop" ];
-          "image/png"  = [ "imv.desktop" "librewolf.desktop" ];
+        xdg.mimeApps = {
+          enable = true;
+         
+          defaultApplications = {
+            "image/jpeg" = [ "imv.desktop" "feh.desktop" "librewolf.desktop" "firefox.desktop" ];
+            "image/png"  = [ "imv.desktop" "librewolf.desktop" "firefox.desktop" ];
           
-          "video/mp4"  = [ "mpv.desktop" "librewolf.desktop" ];
-          "video/mkv"  = [ "mpv.desktop" "librewolf.desktop" ];
+            "video/mp4"  = [ "mpv.desktop" "librewolf.desktop" "firefox.desktop" ];
+            "video/mkv"  = [ "mpv.desktop" "librewolf.desktop" "firefox.desktop" ];
           
-          "application/pdf" = [ "atril.desktop" "librewolf.desktop" ];
+            "application/pdf" = [ "atril.desktop" "librewolf.desktop" "firefox.desktop" ];
           
-          "text/html" = [ "librewolf.desktop" ];
-          "x-scheme-handler/http"  = [ "librewolf.desktop" ];
-          "x-scheme-handler/https" = [ "librewolf.desktop" ];
+            "text/html" = [ "librewolf.desktop" "firefox.desktop" ];
+            "x-scheme-handler/http"  = [ "librewolf.desktop" "firefox.desktop" ];
+            "x-scheme-handler/https" = [ "librewolf.desktop" "firefox.desktop" ];
+          };
         };
-      };
+      });
     };
   };
 }
