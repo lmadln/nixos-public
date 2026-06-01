@@ -11,20 +11,19 @@ binds {
 
     // Launcher
     // Mod+W repeat=false hotkey-overlay-title="Run an Application: wofi" { spawn-sh "pkill wofi || wofi"; }
-    Mod+W repeat=false hotkey-overlay-title="Spawn Launcher" { spawn-sh "noctalia-shell ipc call launcher toggle" ; }
-    Mod+X repeat=false hotkey-overlay-title="Spawn Launcner" { spawn-sh "noctalia-shell ipc call launcher toggle" ; }
+    Mod+W repeat=false hotkey-overlay-title="Spawn Launcher" { spawn-sh "noctalia-shell ipc call launcher toggle || noctalia msg panel-toggle launcher" ; }
+    Mod+X repeat=false hotkey-overlay-title="Spawn Launcner" { spawn-sh "noctalia-shell ipc call launcher toggle || noctalia msg panel-toggle launcher" ; }
 
     // Lock
     // Mod+Ctrl+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     // Mod+Ctrl+Alt+L hotkey-overlay-title="Lock the Screen" { spawn-sh "quickshell -p ~/programming/quickshell/lockscreen/shell.qml"; }
-    Mod+Ctrl+L hotkey-overlay-title="Lock the Screen" { spawn-sh "noctalia-shell ipc call lockScreen lock" ; }
-    Mod+Ctrl+Alt+L hotkey-overlay-title="Lock the Screen" { spawn-sh "noctalia-shell ipc call lockScreen lock" ; }
+    Mod+Ctrl+L hotkey-overlay-title="Lock the Screen" { spawn-sh "noctalia-shell ipc call lockScreen lock || noctalia msg session lock" ; }
+    Mod+Ctrl+Alt+L hotkey-overlay-title="Lock the Screen" { spawn-sh "noctalia-shell ipc call lockScreen lock || noctalia msg session lock" ; }
 
     // Wallpapers
     // Mod+Shift+W repeat=false hotkey-overlay-title="Select wallpaper" { spawn-sh "python ~/programming/wallpaper_selector_niri/config.py"; }
     Mod+Shift+W repeat=false hotkey-overlay-title="Select Wallpaper (neat)" { spawn-sh "noctalia-shell ipc call plugin:wallcards toggle" ; }
-    Mod+Alt+W repeat=false hotkey-overlay-title="Select Wallpaper" { spawn-sh "noctalia-shell ipc call wallpaper toggle" ; }
-    Mod+Ctrl+W repeat=false hotkey-overlay-title="Select Video Wallpaper" { spawn-sh "noctalia-shell ipc call plugin:videowallpaper openPanel" ; }
+    Mod+Alt+W repeat=false hotkey-overlay-title="Select Wallpaper" { spawn-sh "noctalia-shell ipc call wallpaper toggle || noctalia msg panel-toggle wallpaper" ; }
 
     // Display time (Mod release)
     Mod+F1 hotkey-overlay-title=null { spawn-sh "notify-send -u low -t 1000 $(date '+%H:%M')"; }
@@ -235,9 +234,9 @@ binds {
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
     // Session controls
-    Ctrl+Alt+Delete hotkey-overlay-title="Open Session Menu" { spawn-sh "noctalia-shell ipc call sessionMenu toggle"; }
-    Mod+Shift+M hotkey-overlay-title="Open Session Menu" { spawn-sh "noctalia-shell ipc call sessionMenu toggle"; }
-    Mod+Ctrl+M hotkey-overlay-title="Quit niri session" { quit; } // <- Danger
+    Ctrl+Alt+Delete hotkey-overlay-title="Open Session Menu" { spawn-sh "noctalia-shell ipc call sessionMenu toggle || noctalia msg panel-toggle session"; }
+    Mod+Shift+M hotkey-overlay-title="Open Session Menu" { spawn-sh "noctalia-shell ipc call sessionMenu toggle || noctalia msg panel-toggle session"; }
+    Mod+Ctrl+M hotkey-overlay-title="Quit niri session" { quit; }
 
     Mod+Shift+P { power-off-monitors; }
 }
