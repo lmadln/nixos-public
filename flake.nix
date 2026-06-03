@@ -28,5 +28,33 @@
     vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
   };
   
-  outputs = inputs: inputs.flake-parts.lib.mkFlake {inherit inputs;} (inputs.import-tree ./modules);
+  outputs = inputs@{ self, flake-parts, import-tree, ... }: flake-parts.lib.mkFlake {inherit inputs;} {
+    
+    options = {
+      flake = inputs.flake-parts.lib.mkSubmoduleOptions {
+        nixosConfigurationModules = inputs.nixpkgs.lib.mkOption {
+          type = inputs.nixpkgs.lib.types.lazyAttrsOf inputs.nixpkgs.lib.types.unspecified;
+          default = {};
+          description = "";
+        };
+        nixosHardware = inputs.nixpkgs.lib.mkOption {
+          type = inputs.nixpkgs.lib.types.lazyAttrsOf inputs.nixpkgs.lib.types.unspecified;
+          default = {};
+          description = "";
+        };
+        nixosUsers = inputs.nixpkgs.lib.mkOption {
+          type = inputs.nixpkgs.lib.types.lazyAttrsOf inputs.nixpkgs.lib.types.unspecified;
+          default = {};
+          description = "";
+        };
+        test = inputs.nixpkgs.lib.mkOption {
+          type = inputs.nixpkgs.lib.types.lazyAttrsOf inputs.nixpkgs.lib.types.unspecified;
+          default = {};
+          description = "";
+        };
+      };
+    };
+
+    imports = [ (import-tree ./modules) ];
+  };
 }
