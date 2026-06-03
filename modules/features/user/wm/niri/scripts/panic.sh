@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 CURRENT_WORKSPACE_AWI=$(niri msg -j workspaces | jq -r '.[] | select(.is_focused == true) | .active_window_id')
 

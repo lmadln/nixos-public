@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 CURRENT_WORKSPACE=$(niri msg -j workspaces | jq -r '.[] | select(.is_focused == true) | .name')
 
