@@ -1,7 +1,7 @@
 { self, inputs, ... }: {
   flake.nixosModules.core = { config, pkgs, ... }: {
     imports = [
-      flake.nixosUsers.root
+      self.nixosUsers.root
     ];
   
     environment.systemPackages = with pkgs; [
