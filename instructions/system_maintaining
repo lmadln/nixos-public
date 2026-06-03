@@ -1,0 +1,7 @@
+rebuild:
+	`sudo nixos-rebuild {switch|boot|test} --flake ~/nixos#{pc|laptop}`
+
+update:
+	`cd nixos`
+	`nix flake update`
+	`rebuild`

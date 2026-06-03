@@ -1,0 +1,12 @@
+edit sercrets:
+	`cd ~/nixos`
+	`sops secrets/secrets.yaml`
+
+edit keys:
+	`nano ~/nixos/.sops.yaml`
+
+generate age-key:
+	`nix run nixpkgs#ssh-to-age -- -i ~/.ssh/id_ed25519.pub`
+
+save private age-key:
+	`sudo nix run nixpkgs#ssh-to-age -- -private-key -i /etc/ssh/ssh_host_ed25519_key > /tmp/server_age.key`
