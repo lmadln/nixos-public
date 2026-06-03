@@ -1,16 +1,13 @@
 { self, inputs, ... }: {
-  flake.nixosUsers.alex = { config, pkgs, lib, ... }:
+  flake.nixosUsers.user = { config, pkgs, lib, ... }:
   let
-    username = "alex";
-    host = config.networking.hostName;
+    username = "user";
   in {
     users.users."${username}" = {
       isNormalUser = true;
-      description = "alex";
+      description = "user";
       extraGroups = [ "networkmanager" "wheel" "keyd" ];
-      hashedPasswordFile = if (host == "pc") 
-        then config.sops.secrets."user_alex_password".path 
-        else config.sops.secrets."user_root_password".path;
+      hashedPasswordFile = config.sops.secrets."user_user_password".path;
       homeMode = "0700";
     };
 
@@ -26,18 +23,10 @@
     user.apps.localsend.users = [ "${username}" ];
     user.apps.kitty.users = [ "${username}" ];
     user.apps.firefox.users = [ "${username}" ];
-    user.apps.librewolf.users = [ "${username}" ];
     user.apps.v2rayn.users = [ "${username}" ];
 
     user.cli.fastfetch.users = [ "${username}" ];
     user.cli.yazi.users = [ "${username}" ];
-
-    user.utils.direnv.users = [ "${username}" ];
-
-    sys.flatpak.enable = (host == "pc");
-    sys.flatpak.packages = lib.mkIf (host == "pc") [ "com.pot_app.pot" ];
-
-    sys.steam.enable = true;
 
     home-manager.users."${username}".home = {
       stateVersion = "26.05";
@@ -46,7 +35,6 @@
         pkgs.easyeffects # audio effects
         pkgs.atril       # [.pdf, .djvu] viewer
         pkgs.abiword     # [.docx] editor
-        pkgs.godot
         pkgs.bitwarden-desktop
       ];
     };

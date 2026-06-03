@@ -1,0 +1,21 @@
+// Add lines like this to spawn processes at startup.
+// Note that running niri as a session supports xdg-desktop-autostart,
+// which may be more convenient to use.
+// See the binds section below for more spawn examples.
+
+
+// spawn-at-startup "qs" "-c" "noctalia-shell"
+spawn-at-startup "noctalia-shell"
+
+spawn-at-startup "easyeffects"
+spawn-at-startup "spotify"
+spawn-at-startup "v2rayN"
+
+spawn-at-startup "flatpak run com.pot_app.pot"
+
+spawn-sh-at-startup "kitty --hold --app-id \"kitty opening\" fastfetch"
+
+hotkey-overlay {
+    // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
+    skip-at-startup
+}

@@ -1,10 +1,7 @@
 { self, inputs, ... }: {
   flake.nixosModules.core = { config, pkgs, ... }: {
     imports = [
-      self.nixosModules.metadata
-      self.nixosModules.zsh
-      self.nixosModules.fastfetch
-      self.nixosModules.home-manager
+      flake.nixosUsers.root
     ];
   
     environment.systemPackages = with pkgs; [
@@ -14,10 +11,7 @@
       git
       vim
       jq
-      udisks
-      eudev
       usbutils
-      os-prober
       sops
     ];
   
@@ -31,36 +25,27 @@
     # SSD stuff
     nix.settings.auto-optimise-store = true;
     services.fstrim.enable = true;
+
+    services.udisks2.enable = true;
   
     # Bootloader
     boot.loader.systemd-boot.enable = true; # false;
-    #boot.loader.efi.canTouchEfiVariables = true;
-    #boot.loader.grub = {
-    #  enable = true;
-    #  device = "nodev";
-    #  efiSupport = true;
-    #      
-    #  useOSProber = true;
-    #};
     boot.loader.timeout = 15;
     
     sops = {
       defaultSopsFile = ../../secrets/secrets.yaml;
-      
+      defaultSopsFormat = "yaml";      
       age.sshKeyPaths =[ "/etc/ssh/ssh_host_ed25519_key" ];
       
-      secrets."wifi_password" = {};
-      secrets."user_password" = {
+      secrets."user_alex_password" = {
         neededForUsers = true; 
       };
-    };
-  
-    custom.username = "alex";
-    users.users.${config.custom.username} = {
-      isNormalUser = true;
-      description = "alex";
-      extraGroups = [ "networkmanager" "wheel" "keyd" ];
-      hashedPasswordFile = config.sops.secrets."user_password".path;
+      secrets."user_user_password" = {
+        neededForUsers = true; 
+      };
+      secrets."user_root_password" = {
+        neededForUsers = true; 
+      };
     };
     
     # Configure keymap in X11
@@ -97,8 +82,8 @@
       options = "--delete-older-than 60d";
     };
     
-    programs.dconf.enable = true;
     
+
     
     system.stateVersion = "25.11";
   };

@@ -3,9 +3,15 @@
     modules = [
       inputs.sops-nix.nixosModules.sops
       inputs.nix-flatpak.nixosModules.nix-flatpak
-      
-      self.nixosModules.pcHardware
-      self.nixosModules.pcConfiguration
+      inputs.home-manager.nixosModules.home-manager
+
+      {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+      }
+
+      self.nixosHardware.pc
+      self.nixosConfigurationModules.pc
     ];
   };
 }

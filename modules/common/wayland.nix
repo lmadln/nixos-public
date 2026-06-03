@@ -1,7 +1,6 @@
 { self, inputs, ... }: {
   flake.nixosModules.wayland = { config, pkgs, ... }: {
     imports = [
-      self.nixosModules.keyd
     ];
   
     environment.systemPackages = with pkgs; [
@@ -64,6 +63,7 @@
     
     # Polkit
     security.polkit.enable = true;
+
     programs.dconf.enable = true;
     
     # Wayland graphics
