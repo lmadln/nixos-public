@@ -1,6 +1,9 @@
 { self, inputs, ... }: {
   flake.nixosConfiguration.laptop = { config, pkgs, ... }: {
     imports = [
+      self.nixosConfigurationModules.core
+      self.nixosConfigurationModules.gui
+
       self.nixosUsers.alex
       self.nixosUsers.user
       self.nixosUsers.guest

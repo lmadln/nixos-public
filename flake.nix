@@ -47,7 +47,7 @@
           default = {};
           description = "";
         };
-        test = inputs.nixpkgs.lib.mkOption {
+        nixosSystemModules = inputs.nixpkgs.lib.mkOption {
           type = inputs.nixpkgs.lib.types.lazyAttrsOf inputs.nixpkgs.lib.types.unspecified;
           default = {};
           description = "";
