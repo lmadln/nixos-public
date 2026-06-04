@@ -55,7 +55,7 @@
               ];
               view_pdf = [
                 { run = ''atril "$@"''; orphan = true; desc = "Atril"; }
-              ]
+              ];
               browser = [
                 { run = ''librewolf "$@"''; orphan = true; desc = "Librewolf"; }
                 { run = ''firefox "$@"''; orphan = true; desc = "Firefox"; }
