@@ -19,6 +19,9 @@
             hwdec = "auto-safe";
 
             keep-open = "yes";
+
+            http-proxy = "http://127.0.0.1:10808";
+            ytdl-raw-options = "proxy=http://127.0.0.1:10808";
           };
 
           bindings = {
