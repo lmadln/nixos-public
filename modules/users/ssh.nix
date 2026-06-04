@@ -1,13 +1,13 @@
 { self, inputs, ... }: {
-  flake.nixosUsers.guest = { config, pkgs, ... }:
+  flake.nixosUsers.ssh = { config, pkgs, ... }:
   let
-    username = "guest";
+    username = "ssh";
   in {
     users.users."${username}" = {
       isNormalUser = true;
-      description = "test";
-      extraGroups = [ "networkmanager" ];
-      initialPassword = "";
+      description = "ssh";
+      extraGroups = [ "networkmanager" "wheel" ];
+      hashedPasswordFile = config.sops.secrets."user_root_password".path;
       homeMode = "0755";
     };
 

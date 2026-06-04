@@ -25,6 +25,7 @@
     user.apps.firefox.users = [ "${username}" ];
     user.apps.v2rayn.users = [ "${username}" ];
     user.apps.obs-studio.users = [ "${username}" ];
+    user.apps.vscode.users = [ "${username}" ];
 
     user.cli.fastfetch.users = [ "${username}" ];
     user.cli.yazi.users = [ "${username}" ];

@@ -32,6 +32,9 @@
     services.xserver.videoDrivers = [ "amdgpu" ]; # Fixes plymoth resolution
 
     services.openssh.enable = true;  
-    services.openssh.settings.AllowUsers = [ "alex" ];
+    services.openssh.settings.AllowUsers = [ "ssh" ];
+
+
+    system.stateVersion = "25.11";
   };
 }
