@@ -46,7 +46,7 @@
           enable = true;
          
           defaultApplications = {
-            "image/jpeg" = [ "imv.desktop" "feh.desktop" "librewolf.desktop" "firefox.desktop" ];
+            "image/jpeg" = [ "imv.desktop" "librewolf.desktop" "firefox.desktop" ];
             "image/png"  = [ "imv.desktop" "librewolf.desktop" "firefox.desktop" ];
           
             "video/mp4"  = [ "mpv.desktop" "librewolf.desktop" "firefox.desktop" ];
