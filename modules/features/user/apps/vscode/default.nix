@@ -3,9 +3,7 @@
   let
     marketplace = inputs.vscode-extensions.extensions.${pkgs.stdenv.hostPlatform.system}.vscode-marketplace;
     users = lib.unique config.user.apps.vscode.users;
-  in
-  {
-
+  in {
     options.user.apps.vscode.users = lib.mkOption {
       type = lib.types.listOf lib.types.str;
       default = [];
@@ -13,7 +11,6 @@
     };
 
     config = lib.mkIf (users != []) {
-
       home-manager.users = lib.genAttrs users (user: {
         programs.vscodium = {
           enable = true;
@@ -26,7 +23,7 @@
               ms-vscode.cpptools
               marketplace.kdl-org.kdl
               mkhl.direnv
-              noctalia.noctaliatheme
+              marketplace.noctalia.noctaliatheme
             ];
             
             userSettings = {
@@ -39,13 +36,13 @@
               "C_Cpp.default.cStandard" = "c17";
             };
           };
-
-          #home.file.".vscode-oss/extensions/noctalia.noctaliatheme-0.0.5-universal".source = "${patchedNoctaliaTheme}/share/vscode/extensions/noctalia.noctaliatheme";
-          home.packages = with pkgs;[
-            (writeShellScriptBin "code-oss" "exec codium \"$@\"")
-            (writeShellScriptBin "code" "exec codium \"$@\"")
-          ];
         };
+
+        #home.file.".vscode-oss/extensions/noctalia.noctaliatheme-0.0.5-universal".source = "${patchedNoctaliaTheme}/share/vscode/extensions/noctalia.noctaliatheme";
+        home.packages = with pkgs;[
+          (writeShellScriptBin "code-oss" "exec codium \"$@\"")
+          (writeShellScriptBin "code" "exec codium \"$@\"")
+        ];
       });
     };
   };
