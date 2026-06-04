@@ -39,7 +39,7 @@
           shellAliases = {
             fullclear = "printf '\\033[2J\\033[3J\\033[H'";
             rebuild = "sudo nixos-rebuild switch --flake ~/nixos#${sysConfig.networking.hostName}";
-            clean = "sudo nix-collect-garbage -d && rebuild";
+            clean = "sudo nix-collect-garbage -d";
           };
 
           syntaxHighlighting.styles = {
