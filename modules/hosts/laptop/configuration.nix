@@ -8,7 +8,7 @@
       self.nixosUsers.user
       self.nixosUsers.ssh
       self.nixosUsers.guest
-    ];
+    ] ++ (builtins.attrValues self.nixosModules);
 
     sys.keyd.enable = true;
 
