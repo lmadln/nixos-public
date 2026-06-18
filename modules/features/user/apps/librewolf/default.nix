@@ -14,6 +14,8 @@
 
       nixpkgs.config.permittedInsecurePackages = [
         "librewolf-151.0.2-1"
+        "librewolf-unwrapped-151.0.2-1"
+        "electron-39.8.10"
       ];
       
       home-manager.users = lib.genAttrs users (user: {
