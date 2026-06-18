@@ -16,10 +16,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     
-    noctalia5 = {
-      url = "github:noctalia-dev/noctalia-shell/v5";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    #noctalia5 = {
+    #  url = "github:noctalia-dev/noctalia-shell/v5";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
     
     nix-flatpak.url = "github:gmodena/nix-flatpak";
     

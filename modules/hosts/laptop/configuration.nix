@@ -1,5 +1,5 @@
 { self, inputs, ... }: {
-  flake.nixosConfiguration.laptop = { config, pkgs, ... }: {
+  flake.nixosConfigurationModules.laptop = { config, pkgs, ... }: {
     imports = [
       self.nixosConfigurationModules.core
       self.nixosConfigurationModules.gui
