@@ -11,6 +11,10 @@
 
     config = lib.mkIf (users != []) {
       nixpkgs.overlays = [ inputs.nur.overlays.default ];
+
+      nixpkgs.config.permittedInsecurePackages = [
+        "librewolf-151.0.2-1"
+      ];
       
       home-manager.users = lib.genAttrs users (user: {
         home.packages = with pkgs; [
