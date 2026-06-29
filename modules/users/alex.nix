@@ -47,7 +47,7 @@
       stateVersion = "26.05";
       packages = [
         pkgs.godot
-        pkgs.bitwarden-desktop
+        #pkgs.bitwarden-desktop
         pkgs.spotify
         pkgs.easyeffects # audio effects
         pkgs.atril       # [.pdf, .djvu] viewer
