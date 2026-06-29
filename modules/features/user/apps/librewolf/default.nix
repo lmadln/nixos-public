@@ -12,12 +12,6 @@
     config = lib.mkIf (users != []) {
       nixpkgs.overlays = [ inputs.nur.overlays.default ];
 
-      nixpkgs.config.permittedInsecurePackages = [
-        "librewolf-151.0.2-1"
-        "librewolf-unwrapped-151.0.2-1"
-        "electron-39.8.10"
-      ];
-      
       home-manager.users = lib.genAttrs users (user: {
         home.packages = with pkgs; [
           pywalfox-native
