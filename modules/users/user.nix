@@ -37,7 +37,7 @@
         pkgs.easyeffects # audio effects
         pkgs.atril       # [.pdf, .djvu] viewer
         pkgs.abiword     # [.docx] editor
-        pkgs.bitwarden-desktop
+        #pkgs.bitwarden-desktop
 
         pkgs.pavucontrol
         pkgs.pamixer
