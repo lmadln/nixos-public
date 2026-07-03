@@ -33,6 +33,8 @@
     user.apps.mpv.users = [ "${username}" ];
     user.apps.imv.users = [ "${username}" ];
 
+    user.apps.prismlauncher.users = lib.mkIf (host == "pc") [ "${username}" ];
+
     user.cli.fastfetch.users = [ "${username}" ];
     user.cli.yazi.users = [ "${username}" ];
 
