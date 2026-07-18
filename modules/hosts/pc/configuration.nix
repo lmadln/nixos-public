@@ -16,6 +16,13 @@
 
     networking.hostName = "pc";
 
+    # Brightness
+    hardware.i2c.enable = true;
+
+    environment.systemPackages = [
+      pkgs.ddcutil
+    ];
+
     # Btrfs specific
     zramSwap.enable = true;
     services.btrfs.autoScrub.enable = true;
