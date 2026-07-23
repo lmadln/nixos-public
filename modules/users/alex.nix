@@ -59,6 +59,9 @@
         pkgs.pavucontrol
         pkgs.pamixer
         pkgs.playerctl
+      ]
+      ++ lib.optionals (host == "pc") [
+        pkgs.blender
       ];
     };
   };
