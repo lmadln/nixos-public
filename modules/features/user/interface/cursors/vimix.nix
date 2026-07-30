@@ -11,6 +11,7 @@
     config = lib.mkIf (users != []) {
       home-manager.users = lib.genAttrs users (user: {
         home.pointerCursor = {
+          enable = true;
           name = "Vimix-cursors";
           package = pkgs.vimix-cursors;
           size = 24;
