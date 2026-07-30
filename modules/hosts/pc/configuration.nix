@@ -23,6 +23,11 @@
       pkgs.ddcutil
     ];
 
+    # Bluetooth
+    hardware.bluetooth.enable = true;
+    hardware.bluetooth.powerOnBoot = true;
+    services.blueman.enable = true;
+
     # Btrfs specific
     zramSwap.enable = true;
     services.btrfs.autoScrub.enable = true;
