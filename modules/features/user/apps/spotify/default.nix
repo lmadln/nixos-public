@@ -2,7 +2,7 @@
   flake.nixosModules.spotify = { config, lib, pkgs, ... }: 
   let
     users = lib.unique config.user.apps.spotify.users;
-    spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
+    spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system};
   in {
 
     options.user.apps.spotify.users = lib.mkOption {
@@ -12,33 +12,30 @@
     };
 
     config = lib.mkIf (users != []) {
-      
-      imports = [
-         inputs.spicetify-nix.nixosModules.default
-      ];
 
       home-manager.users = lib.genAttrs users (user: {
 
-        programs.spicetify = [
+        imports = [ inputs.spicetify-nix.homeManagerModules.default ];
+
+        programs.spicetify = {
           enable = true;
 
-         theme = spicePkgs.themes.catppuccin;
-         colorScheme = "mocha";
+          theme = spicePkgs.themes.sleek;
+          colorScheme = "BladeRunner";
 
-         enabledExtensions = with spicePkgs.extensions; [
-           adblock
-           hidePodcasts
-           shuffle
-         ];
+          enabledExtensions = with spicePkgs.extensions; [
+            adblock
+            hidePodcasts
+            shuffle
+          ];
 
-         enabledCustomApps = with spicePkgs.apps; [
-           newReleases
+          enabledCustomApps = with spicePkgs.apps; [
+            newReleases
             ncsVisualizer
           ];
-        ];
+        };
 
         home.packages = [
-          pkgs.spotify;
         ];
       });
     };
