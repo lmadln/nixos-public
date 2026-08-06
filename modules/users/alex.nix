@@ -32,6 +32,7 @@
     user.apps.vscode.users = [ "${username}" ];
     user.apps.mpv.users = [ "${username}" ];
     user.apps.imv.users = [ "${username}" ];
+    user.apps.spotify.users = [ "${username}" ];
 
     user.apps.prismlauncher.users = lib.mkIf (host == "pc") [ "${username}" ];
 
@@ -50,7 +51,7 @@
       packages = [
         pkgs.godot
         #pkgs.bitwarden-desktop
-        pkgs.spotify
+        #pkgs.spotify
         pkgs.easyeffects # audio effects
         pkgs.atril       # [.pdf, .djvu] viewer
         pkgs.abiword     # [.docx] editor

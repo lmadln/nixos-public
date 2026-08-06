@@ -26,6 +26,7 @@
     user.apps.v2rayn.users = [ "${username}" ];
     user.apps.obs-studio.users = [ "${username}" ];
     user.apps.vscode.users = [ "${username}" ];
+    user.apps.spotify.users = [ "${username}" ];
 
     user.cli.fastfetch.users = [ "${username}" ];
     user.cli.yazi.users = [ "${username}" ];
@@ -33,7 +34,7 @@
     home-manager.users."${username}".home = {
       stateVersion = "26.05";
       packages = [
-        pkgs.spotify
+        #pkgs.spotify
         pkgs.easyeffects # audio effects
         pkgs.atril       # [.pdf, .djvu] viewer
         pkgs.abiword     # [.docx] editor
