@@ -6,5 +6,8 @@
       self.nixosSystemModules.audio
       self.nixosSystemModules.fonts
     ];
+
+    programs.appimage.enable = true;
+    programs.appimage.binfmt = true;
   };
 }
