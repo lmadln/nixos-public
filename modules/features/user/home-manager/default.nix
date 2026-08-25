@@ -51,6 +51,8 @@
           
             "video/mp4"  = [ "mpv.desktop" "librewolf.desktop" "firefox.desktop" ];
             "video/mkv"  = [ "mpv.desktop" "librewolf.desktop" "firefox.desktop" ];
+
+            "audio/mpeg" = [ "mpv.desktop" ];
           
             "application/pdf" = [ "atril.desktop" "librewolf.desktop" "firefox.desktop" ];
           

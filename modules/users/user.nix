@@ -29,7 +29,8 @@
     user.apps.spotify.users = [ "${username}" ];
 
     user.cli.fastfetch.users = [ "${username}" ];
-    user.cli.yazi.users = [ "${username}" ];
+
+    user.tui.yazi.users = [ "${username}" ];
 
     home-manager.users."${username}".home = {
       stateVersion = "26.05";

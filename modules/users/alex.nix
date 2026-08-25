@@ -37,7 +37,8 @@
     user.apps.prismlauncher.users = lib.mkIf (host == "pc") [ "${username}" ];
 
     user.cli.fastfetch.users = [ "${username}" ];
-    user.cli.yazi.users = [ "${username}" ];
+
+    user.tui.yazi.users = [ "${username}" ];
 
     user.utils.direnv.users = [ "${username}" ];
 

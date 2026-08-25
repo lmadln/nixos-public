@@ -1,12 +1,12 @@
 { self, inputs, ... }: {
   flake.nixosModules.yazi = { pkgs, config, lib, ... }: 
   let
-    users = lib.unique config.user.cli.yazi.users;
+    users = lib.unique config.user.tui.yazi.users;
   in {
-    options.user.cli.yazi.users = lib.mkOption {
+    options.user.tui.yazi.users = lib.mkOption {
       type = lib.types.listOf lib.types.str;
       default = [];
-      description = "Yazi terminals file explorer";
+      description = "Yazi file explorer";
     };
     config = lib.mkIf (users != []) {
       home-manager.users = lib.genAttrs users (user: {
@@ -23,7 +23,7 @@
         
           keymap = {
             mgr.prepend_keymap = [
-              { on = [ "Y" ]; run  = "shell \"for f in \"$@\"; do echo \"file://$f\"; done | wl-copy -t text/uri-list\" --confirm"; }
+              { on = [ "Y" ]; run  = "shell \"for f in \"%s\"; do echo \"file://$f\"; done | wl-copy -t text/uri-list\" --confirm"; }
             ];
           };
 
@@ -45,7 +45,10 @@
                 { run = ''imv "%s"''; orphan = true; desc = "Imv"; }
               ];
               open_video = [
-                { run = ''mpv "%s"''; orphan = true; desc = "Mpv"; }
+                { run = ''mpv --force-window "%s"''; orphan = true; desc = "Mpv"; }
+              ];
+              open_audio = [
+                { run = ''mpv --force-window "%s"''; orphan = true; desc = "Mpv"; }
               ];
               edit_text = [
                 { run = ''nano "%s"''; block = true; desc = "Nano"; }
@@ -102,7 +105,7 @@
                   
                 { mime = "image/*"; use = [ "system" "open_image" "browser" "copy_image" "reveal" "show_exif" ]; }
                 { mime = "video/*"; use = [ "system" "open_video" "browser" "reveal" "show_exif" ]; }
-                { mime = "audio/*"; use = [ "system" "browser" "reveal" "show_exif" ]; }                  
+                { mime = "audio/*"; use = [ "system" "open_audio" "browser" "reveal" "show_exif" ]; }
                   
                 { url = "*"; use =[ "system" "reveal" "show_exif" ]; }
               ];
