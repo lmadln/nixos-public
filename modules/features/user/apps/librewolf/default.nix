@@ -46,6 +46,97 @@
               multi-account-containers
               bitwarden
             ];
+
+            userChrome = ''
+              menupopup, panel {
+                --panel-background: rgba(50, 50, 50, 0.75) !important;
+                --panel-border-color: rgba(255, 255, 255, 0.1) !important;
+                --panel-shadow-margin: 0px !important;
+                --panel-shadow: none !important;
+                --panel-padding: 0px !important;
+                
+                padding: 0 !important;
+                margin: 0 !important;
+                border: none !important;
+              }
+
+              .menupopup-arrowscrollbox {
+                background-color: var(--panel-background) !important;
+                box-shadow: none !important;
+                border: 1px solid var(--panel-border-color) !important;
+                border-radius: 10px !important;
+                
+                width: 100% !important;
+                min-width: 100% !important;
+                box-sizing: border-box !important;
+                
+                margin: 0 !important;
+                padding: 4px 0 !important;
+              }
+
+              menupopup scrollbox,
+              .menupopup-arrowscrollbox > scrollbox {
+                scrollbar-width: none !important;
+                padding-inline-end: 0 !important;
+                margin-inline-end: 0 !important;
+              }
+
+              #context-navigation {
+                padding-inline: 0 !important;
+                margin-inline: 0 !important;
+              }
+
+
+
+              .panel-arrowbox {
+                display: none !important;
+              }
+
+              :is(panel, menupopup)[type="arrow"] {
+                --panel-shadow-margin: 0px !important;
+                --arrowpanel-margin: 0px !important;
+                --arrowpanel-padding: 0px !important;
+                --panel-shadow: none !important;
+              }
+
+              .panel-arrowcontainer,
+              .panel-arrowcontent,
+              .panel-arrowbox + slot,
+              slot[part="content"],
+              panel[type="arrow"]::part(content) {
+                width: 100% !important;
+                min-width: 100% !important;
+                box-sizing: border-box !important;
+                margin: 0 !important;
+                margin-inline: 0 !important;
+                padding: 0 !important;
+                box-shadow: none !important;
+              }
+
+              .panel-arrowcontent,
+              slot[part="content"],
+              panel[type="arrow"]::part(content) {
+                background-color: var(--panel-background) !important;
+                border: 1px solid var(--panel-border-color) !important;
+                border-radius: 10px !important;
+              }
+
+              panelmultiview,
+              panelview {
+                width: 100% !important;
+                min-width: 100% !important;
+                box-sizing: border-box !important;
+                margin: 0 !important;
+                background: transparent !important;
+              }
+
+              panelview,
+              .panel-subview-body {
+                scrollbar-width: none !important;
+                padding-inline-end: 0 !important;
+                margin-inline-end: 0 !important;
+              }
+            '';
             
             settings = {
               "browser.startup.page" = 3;
@@ -89,7 +180,7 @@
               "network.proxy.socks_port" = 10808;
               "network.proxy.socks_remote_dns" = true;
             };
-            
+                        
             search = {
               force = true;
               default = "ddg";
