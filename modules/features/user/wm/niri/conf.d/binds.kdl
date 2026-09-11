@@ -34,10 +34,10 @@ binds {
     XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
     XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
 
-    XF86AudioPlay        allow-when-locked=true { spawn-sh "playerctl --player=spotify,%any play-pause"; }
+    XF86AudioPlay        allow-when-locked=true { spawn-sh "playerctl --player=io.bassi.Amberol,spotify,%any play-pause"; }
     XF86AudioStop        allow-when-locked=true { spawn-sh "playerctl -a stop"; }
-    XF86AudioPrev        allow-when-locked=true { spawn-sh "playerctl --player=spotify,%any previous"; }
-    XF86AudioNext        allow-when-locked=true { spawn-sh "playerctl --player=spotify,%any next"; }
+    XF86AudioPrev        allow-when-locked=true { spawn-sh "playerctl --player=io.bassi.Amberol,spotify,%any previous"; }
+    XF86AudioNext        allow-when-locked=true { spawn-sh "playerctl --player=io.bassi.Amberol,spotify,%any next"; }
 
     // Brightness controls
     XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
