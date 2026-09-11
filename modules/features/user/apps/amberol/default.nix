@@ -10,7 +10,7 @@
     };
     config = lib.mkIf (users != []) {
       home-manager.users = lib.genAttrs users (user: {
-        servoces.ambrol.enable = true;
+        services.amberol.enable = true;
       });
     };
   };
