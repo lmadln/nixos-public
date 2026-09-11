@@ -33,6 +33,7 @@
     user.apps.mpv.users = [ "${username}" ];
     user.apps.imv.users = [ "${username}" ];
     user.apps.spotify.users = [ "${username}" ];
+    user.apps.amberol.users = [ "${username}" ];
 
     user.apps.prismlauncher.users = lib.mkIf (host == "pc") [ "${username}" ];
 
