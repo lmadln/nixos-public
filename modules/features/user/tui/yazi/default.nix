@@ -48,6 +48,7 @@
                 { run = ''mpv --force-window "%s"''; orphan = true; desc = "Mpv"; }
               ];
               open_audio = [
+                { run = ''amberol "%s"''; orphan = true; desc = "Amberol"; }
                 { run = ''mpv --force-window "%s"''; orphan = true; desc = "Mpv"; }
               ];
               edit_text = [
