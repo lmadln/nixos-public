@@ -12,6 +12,13 @@
 
     sys.keyd.enable = true;
 
+    services.hardware.openrgb.enable = true;
+
+    services.udev.extraRules = ''
+      SUBSYSTEM=="usb", ATTRS{idVendor}=="1a86", ATTRS{idProduct}=="7523", MODE="0666", GROUP="dialout"
+      SUBSYSTEM=="tty", ATTRS{idVendor}=="1a86", ATTRS{idProduct}=="7523", MODE="0666", GROUP="dialout"
+    '';
+
     users.mutableUsers = false;
 
     networking.hostName = "pc";

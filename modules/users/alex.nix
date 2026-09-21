@@ -7,7 +7,7 @@
     users.users."${username}" = {
       isNormalUser = true;
       description = "alex";
-      extraGroups = [ "networkmanager" "wheel" "keyd" "i2c" ];
+      extraGroups = [ "networkmanager" "wheel" "keyd" "i2c" "dialout" ];
       hashedPasswordFile = if (host == "pc") 
         then config.sops.secrets."user_alex_password".path 
         else config.sops.secrets."user_root_password".path;
