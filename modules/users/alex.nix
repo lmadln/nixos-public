@@ -57,7 +57,7 @@
         pkgs.easyeffects # audio effects
         pkgs.atril       # [.pdf, .djvu] viewer
         pkgs.abiword     # [.docx] editor
-	pkgs.gimp
+	pkgs.krita
 
         pkgs.pavucontrol
         pkgs.pamixer
