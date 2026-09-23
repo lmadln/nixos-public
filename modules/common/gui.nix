@@ -7,6 +7,8 @@
       self.nixosSystemModules.fonts
     ];
 
+    hardware.opentabletdriver.enable = true;
+
     programs.appimage.enable = true;
     programs.appimage.binfmt = true;
   };
