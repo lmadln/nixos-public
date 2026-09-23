@@ -65,6 +65,7 @@
       ]
       ++ lib.optionals (host == "pc") [
         pkgs.blender
+        pkgs.osu-lazer-bin
       ];
     };
   };
