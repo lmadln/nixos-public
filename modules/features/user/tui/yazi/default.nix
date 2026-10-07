@@ -23,7 +23,7 @@
         
           keymap = {
             mgr.prepend_keymap = [
-              { on = [ "Y" ]; run  = "shell \"for f in \"%s\"; do echo \"file://$f\"; done | wl-copy -t text/uri-list\" --confirm"; }
+              { on = [ "Y" ]; run  = ''shell "for f in "%s"; do echo "file://$f"; done | wl-copy -t text/uri-list" --confirm''; }
             ];
           };
 
@@ -42,45 +42,45 @@
                 { run = ''wl-copy -t image/png < %s''; orphan = true; desc = "Copy"; }
               ];
               open_image = [
-                { run = ''imv "%s"''; orphan = true; desc = "Imv"; }
+                { run = ''imv %s''; orphan = true; desc = "Imv"; }
               ];
               open_video = [
-                { run = ''mpv --force-window "%s"''; orphan = true; desc = "Mpv"; }
+                { run = ''mpv --force-window %s''; orphan = true; desc = "Mpv"; }
               ];
               open_audio = [
-                { run = ''amberol "%s"''; orphan = true; desc = "Amberol"; }
-                { run = ''mpv --force-window "%s"''; orphan = true; desc = "Mpv"; }
+                { run = ''amberol %s''; orphan = true; desc = "Amberol"; }
+                { run = ''mpv --force-window %s''; orphan = true; desc = "Mpv"; }
               ];
               edit_text = [
-                { run = ''nano "%s"''; block = true; desc = "Nano"; }
-                { run = ''vim "%s"''; block = true; desc = "Vim"; }
-                { run = ''codium "%s"''; orphan = true; desc = "VSCode"; }
-                { run = ''abiword "%s"''; orphan = true; desc = "Abiword"; }
+                { run = ''nano %s''; block = true; desc = "Nano"; }
+                { run = ''vim %s''; block = true; desc = "Vim"; }
+                { run = ''codium %s''; orphan = true; desc = "VSCode"; }
+                { run = ''abiword %s''; orphan = true; desc = "Abiword"; }
               ];
               view_pdf = [
-                { run = ''atril "%s"''; orphan = true; desc = "Atril"; }
+                { run = ''atril %s''; orphan = true; desc = "Atril"; }
               ];
               browser = [
-                { run = ''librewolf "%s"''; orphan = true; desc = "Librewolf"; }
-                { run = ''firefox "%s"''; orphan = true; desc = "Firefox"; }
+                { run = ''librewolf %s''; orphan = true; desc = "Librewolf"; }
+                { run = ''firefox %s''; orphan = true; desc = "Firefox"; }
               ];
               edit_document = [
-                { run = ''abiword "%s"''; orphan = true; desc = "Abiword"; }
+                { run = ''abiword %s''; orphan = true; desc = "Abiword"; }
               ];
               open_folder = [
-                { run = ''codium "%s"''; orphan = true; desc = "VSCode"; }
+                { run = ''codium %s''; orphan = true; desc = "VSCode"; }
               ];
-              system =[ { run = "xdg-open \"%s\""; orphan = true; desc = "System default"; } ];
+              system =[ { run = ''xdg-open %s''; orphan = true; desc = "System default"; } ];
               reveal =[
                 { 
-                  run = "if [ -d \"$1\" ]; then cd \"$1\"; else cd \"$(dirname \"$1\")\"; fi && kitty"; 
+                  run = ''if [ -d "$1" ]; then cd "$1"; else cd "$(dirname "$1")"; fi && kitty''; 
                   orphan = true; 
                   desc = "Reveal"; 
                 }
               ];
               show_exif =[
                 { 
-                  run = "exiftool \"%s\" | less"; 
+                  run = ''exiftool "%s" | less'';
                   block = true; 
                   desc = "Show EXIF"; 
                 }
