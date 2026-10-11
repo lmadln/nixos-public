@@ -5,19 +5,9 @@
 
     username = config.custom.username;
     
-    #configsDir = "/home/${username}/nixos/modules/hosts/${config.networking.hostName}/configs/noctalia/";
-
-    settingsFile = if (config.networking.hostName == "laptop") then ./laptop-settings.json else ./settings.json;
-    
-    custom-noctalia = pkgs.noctalia-shell.overrideAttrs (oldAttrs: {
-      patches = (oldAttrs.patches or []) ++[
-        ./color-tweak.patch
-        #../../hosts/${config.networking.hostName}/configs/noctalia/color-tweak.patch
-      ];
-    });
+    # settingsFile = if (config.networking.hostName == "laptop") then ./laptop-settings.json else ./settings.json;
   in
   {
-
     options.user.interface.noctalia.users = lib.mkOption {
       type = lib.types.listOf lib.types.str;
       default = [];
@@ -28,13 +18,22 @@
 
       home-manager.users = lib.genAttrs users (user: {
 
+        programs.noctalia = {
+          enable = true;
+
+          settings = ./noctalia-config.toml;
+
+          systemd.enable = true;
+        };
+
+        programs.mpvpaper.enable = true;
+
         home.packages = [
-          custom-noctalia
           pkgs.python3
         ];
       
-        xdg.configFile."noctalia/settings.json".source = 
-          "${settingsFile}";
+        #xdg.configFile."noctalia/settings.json".source = 
+          #"${settingsFile}";
           #./settings.json;
           #config.lib.file.mkOutOfStoreSymlink "${configsDir}/settings.json";
       });
