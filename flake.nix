@@ -16,11 +16,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     
-    #noctalia5 = {
-    #  url = "github:noctalia-dev/noctalia-shell/v5";
-    #  inputs.nixpkgs.follows = "nixpkgs";
-    #};
-
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
