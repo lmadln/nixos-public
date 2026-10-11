@@ -1,0 +1,381 @@
+[bar.default]
+background_opacity = 0.92999997921288013
+capsule = true
+capsule_fill = "secondary"
+capsule_opacity = 0.099999997764825821
+capsule_radius = 10
+end = [
+    "ambient-sounds",
+    "widget",
+    "clipboard",
+    "notes",
+    "bar",
+    "battery",
+    "brightness",
+    "volume",
+    "keyboard_layout",
+    "tray",
+    "notifications",
+    "privacy"
+]
+margin_edge = 0
+margin_ends = 0
+padding = 6
+start = [ "launcher", "wallpaper", "mpvpaper", "workspaces", "ribbon" ]
+
+    [bar.default.dead_zone.actions]
+    middle = "settings-toggle"
+    scroll_down = "exec niri msg action focus-workspace-down"
+    scroll_up = "exec niri msg action focus-workspace-up"
+
+[brightness]
+enable_ddcutil = true
+
+[calendar]
+enabled = true
+
+[control_center]
+sidebar_section = "none"
+width = 800
+
+    [[control_center.shortcuts]]
+    type = "mic_mute"
+
+    [[control_center.shortcuts]]
+    type = "media"
+
+    [[control_center.shortcuts]]
+    type = "clipboard"
+
+    [[control_center.shortcuts]]
+    type = "wallpaper"
+
+    [[control_center.shortcuts]]
+    type = "nightlight"
+
+    [[control_center.shortcuts]]
+    type = "notification"
+
+[desktop_widgets]
+enabled = false
+schema_version = 2
+widget_order = []
+
+    [desktop_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [desktop_widgets.widget]
+
+[idle]
+behavior_order = [ "screen-off", "lock", "lock-and-suspend" ]
+pre_action_fade_seconds = 5
+
+    [idle.behavior.lock]
+    action = "lock"
+    enabled = false
+    timeout = 1800.0
+
+    [idle.behavior.lock-and-suspend]
+    action = "lock_and_suspend"
+    enabled = false
+    timeout = 10800.0
+
+    [idle.behavior.screen-off]
+    action = "screen_off"
+    enabled = false
+    timeout = 900.0
+
+[keybinds]
+cancel = [ "Escape" ]
+down = [ "Down" ]
+left = [ "Left" ]
+right = [ "Right" ]
+up = [ "Up" ]
+validate = [ "Return", "KP_Enter" ]
+
+[location]
+address = "Moscow, Russia"
+custom_schedule = true
+sunrise = "08:00"
+sunset = "22:00"
+
+[lockscreen]
+blur_intensity = 0.029999999329447746
+edge_smoothness = 0.4999999888241291
+tint_intensity = 0.39999999105930328
+transition = [ "honeycomb" ]
+transition_duration = 1000
+wallpaper = "/home/alex/Pictures/Wallpapers/wallpaper9.png"
+
+[lockscreen_widgets]
+enabled = true
+schema_version = 2
+widget_order = [
+    "lockscreen-login-box@DP-1",
+    "lockscreen-widget-0000000000000001",
+    "lockscreen-widget-0000000000000006",
+    "lockscreen-widget-0000000000000009"
+]
+
+    [lockscreen_widgets.grid]
+    cell_size = 64
+    major_interval = 4
+    visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@DP-1"]
+    box_height = 70.0
+    box_width = 400.0
+    cx = 1280.0
+    cy = 1264.0
+    output = "DP-1"
+    placement_height = 1440.0
+    placement_width = 2560.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@DP-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 8.0
+        layout = "compact"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = false
+        show_media = false
+        show_session_buttons = true
+        show_unlock_hint = false
+        show_weather = false
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
+    box_height = 1024.0
+    box_width = 1536.0
+    cx = 1280.0
+    cy = 720.0
+    output = "DP-1"
+    placement_height = 1440.0
+    placement_width = 2560.0
+    rotation = 0.0
+    type = "clock"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000001.settings]
+        background = false
+        background_opacity = 0.33000000000000002
+        background_padding = 16
+        background_radius = 32
+        center_text = true
+        clock_style = "digital"
+        font_family = ""
+        shadow = true
+        timezone = ""
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000006]
+    box_height = 0.0
+    box_width = 0.0
+    cx = 2524.0
+    cy = 36.0
+    output = "DP-1"
+    placement_height = 1440.0
+    placement_width = 2560.0
+    rotation = 0.0
+    type = "button"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000006.settings]
+        background = true
+        command = "systemctl poweroff"
+        glyph = "power"
+        variant = "default"
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000009]
+    box_height = 0.0
+    box_width = 0.0
+    cx = 2468.0
+    cy = 36.0
+    output = "DP-1"
+    placement_height = 1440.0
+    placement_width = 2560.0
+    rotation = 0.0
+    type = "button"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000009.settings]
+        background = true
+        command = "systemctl suspend"
+        glyph = "suspend"
+        variant = "default"
+
+[nightlight]
+enabled = true
+
+[notification]
+background_opacity = 0.79999998211860657
+layer = "overlay"
+offset_x = 8
+
+[osd]
+background_opacity = 0.79999998211860657
+
+[plugin_settings."noctalia/timer"]
+alarm = true
+
+[plugin_settings."reaperhound/ambient-sounds"]
+main_placement = "attached"
+
+[plugins]
+enabled = [
+    "noctalia/bitwarden",
+    "noctalia/timer",
+    "noctalia/notes",
+    "noctalia/translator",
+    "noctalia/mpvpaper",
+    "alexander/screen-toolkit",
+    "luochen1990/niri-ribbon",
+    "reaperhound/ambient-sounds"
+]
+
+[shell]
+avatar_path = "/home/alex/Pictures/kit.png"
+corner_radius_scale = 2.0
+date_format = "%d/%m"
+font_family = "JetBrains Mono"
+launch_apps_as_systemd_services = true
+niri_overview_type_to_launch_enabled = true
+polkit_agent = true
+settings_show_advanced = true
+show_location = false
+telemetry_enabled = false
+
+    [shell.greeter_sync]
+    auto_sync = true
+
+    [shell.launcher]
+    categories = false
+    show_app_actions = true
+
+        [shell.launcher.providers.panels]
+        global = true
+
+    [shell.panel]
+    clipboard_placement = "attached"
+    open_near_click_control_center = true
+
+    [shell.screen_corners]
+    enabled = true
+    size = 28
+
+    [shell.screenshot]
+    directory = "/home/alex/Pictures/Screenshots"
+
+    [shell.session]
+    show_shortcuts = false
+
+        [[shell.session.actions]]
+        action = "lock"
+        countdown_seconds = 0.0
+        enabled = true
+        shortcut = "1"
+        variant = "default"
+
+        [[shell.session.actions]]
+        action = "logout"
+        countdown_seconds = 0.0
+        enabled = true
+        shortcut = "2"
+        variant = "default"
+
+        [[shell.session.actions]]
+        action = "lock_and_suspend"
+        countdown_seconds = 5.0
+        enabled = true
+        shortcut = "3"
+        variant = "default"
+
+        [[shell.session.actions]]
+        action = "reboot"
+        countdown_seconds = 5.0
+        enabled = true
+        shortcut = "4"
+        variant = "default"
+
+        [[shell.session.actions]]
+        action = "shutdown"
+        countdown_seconds = 5.0
+        enabled = true
+        shortcut = "5"
+        variant = "outline"
+
+[system.monitor]
+enabled = false
+
+[theme]
+source = "wallpaper"
+wallpaper_scheme = "m3-tonal-spot"
+
+    [theme.templates]
+    builtin_ids = [ "btop", "gtk3", "gtk4", "kcolorscheme", "kitty", "niri", "qt" ]
+    community_ids = [ "pywalfox", "vscode", "yazi" ]
+
+[wallpaper]
+directory = "/home/alex/Pictures/Wallpapers"
+transition = [ "fade" ]
+
+    [wallpaper.default]
+    path = "/home/alex/Pictures/Wallpapers/wallpaper7.png"
+
+    [wallpaper.last]
+    path = "/home/alex/Pictures/Wallpapers/wallpaper7.png"
+
+    [wallpaper.monitors.DP-1]
+    path = "/home/alex/Pictures/Wallpapers/wallpaper7.png"
+
+[weather]
+enabled = false
+
+[widget.ambient-sounds]
+type = "reaperhound/ambient-sounds:ambient-sounds"
+
+[widget.bar]
+show_idle_on_horizontal = false
+type = "noctalia/timer:bar"
+
+[widget.brightness]
+show_label = false
+
+[widget.clock]
+format = "{:%H:%M | %d/%m}"
+
+[widget.keyboard_layout]
+hide_when_single_layout = true
+show_glyph = false
+
+[widget.launcher]
+glyph = "snowflake"
+
+[widget.mpvpaper]
+type = "noctalia/mpvpaper:mpvpaper"
+
+[widget.notes]
+type = "noctalia/notes:notes"
+
+[widget.notifications]
+hide_when_no_unread = true
+
+[widget.privacy]
+hide_inactive = true
+
+[widget.ribbon]
+type = "luochen1990/niri-ribbon:ribbon"
+
+[widget.tray]
+drawer = true
+drawer_columns = 5
+
+[widget.widget]
+type = "alexander/screen-toolkit:widget"
+
+[widget.workspaces]
+show_labels = false
+show_tooltip = false

@@ -2,7 +2,21 @@
   flake.nixosSystemModules.display = { config, pkgs, ... }: {
 
     services.displayManager = {
-      ly.enable = true;
+      # ly.enable = true;
+      
+      noctalia-greeter = {
+        enable = true;
+        settings = {
+          cursor.size = 24;
+          keyboard.layout = "us";
+        };
+        cursorTheme = {
+          package = pkgs.vimix-cursors;
+          name = "Vimix-cursors";
+        };
+        passwordlessSyncUsers = [ "alex" ];
+      };
+      
       defaultSession = "niri";
     };
 
