@@ -19,6 +19,7 @@
       jq
       usbutils
       sops
+      bc
     ];
   
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
