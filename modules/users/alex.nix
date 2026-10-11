@@ -43,9 +43,6 @@
 
     user.utils.direnv.users = [ "${username}" ];
 
-    sys.flatpak.enable = (host == "pc");
-    sys.flatpak.packages = lib.mkIf (host == "pc") [ "com.pot_app.pot" ];
-
     sys.steam.enable = true;
 
     home-manager.users."${username}".home = {
