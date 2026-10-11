@@ -5,7 +5,7 @@
 
 
 // spawn-at-startup "qs" "-c" "noctalia-shell"
-spawn-at-startup "noctalia-shell"
+// spawn-at-startup "noctalia-shell"
 
 spawn-at-startup "easyeffects"
 spawn-at-startup "spotify"
