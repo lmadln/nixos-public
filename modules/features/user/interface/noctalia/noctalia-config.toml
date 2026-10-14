@@ -29,8 +29,8 @@ thickness = 40
 
     [bar.default.dead_zone.actions]
     middle = "settings-toggle"
-    scroll_down = "exec niri msg action focus-workspace-down"
-    scroll_up = "exec niri msg action focus-workspace-up"
+    scroll_down = "workspace-switch next"
+    scroll_up = "workspace-switch prev"
 
 [brightness]
 enable_ddcutil = true
@@ -78,17 +78,17 @@ pre_action_fade_seconds = 5
 
     [idle.behavior.lock]
     action = "lock"
-    enabled = false
+    enabled = true
     timeout = 1800.0
 
     [idle.behavior.lock-and-suspend]
     action = "lock_and_suspend"
-    enabled = false
+    enabled = true
     timeout = 10800.0
 
     [idle.behavior.screen-off]
     action = "screen_off"
-    enabled = false
+    enabled = true
     timeout = 900.0
 
 [keybinds]
@@ -222,6 +222,9 @@ offset_x = 8
 [osd]
 background_opacity = 0.79999998211860657
 
+[plugin_settings."noctalia/mpvpaper"]
+video_directory = "/home/alex/Downloads"
+
 [plugin_settings."noctalia/timer"]
 alarm = true
 
@@ -327,13 +330,13 @@ directory = "/home/alex/Pictures/Wallpapers"
 transition = [ "fade" ]
 
     [wallpaper.default]
-    path = "/home/alex/Pictures/Wallpapers/wallpaper23.png"
+    path = "/home/alex/Pictures/Wallpapers/wallpaper1.png"
 
     [wallpaper.last]
-    path = "/home/alex/Pictures/Wallpapers/wallpaper23.png"
+    path = "/home/alex/Pictures/Wallpapers/wallpaper1.png"
 
     [wallpaper.monitors.DP-1]
-    path = "/home/alex/Pictures/Wallpapers/wallpaper23.png"
+    path = "/home/alex/Pictures/Wallpapers/wallpaper1.png"
 
 [weather]
 enabled = false
