@@ -299,21 +299,21 @@ telemetry_enabled = false
         action = "lock_and_suspend"
         countdown_seconds = 5.0
         enabled = true
-        shortcut = "3"
+        shortcut = "2"
         variant = "default"
 
         [[shell.session.actions]]
         action = "reboot"
         countdown_seconds = 5.0
         enabled = true
-        shortcut = "4"
+        shortcut = "3"
         variant = "default"
 
         [[shell.session.actions]]
         action = "shutdown"
         countdown_seconds = 5.0
         enabled = true
-        shortcut = "5"
+        shortcut = "4"
         variant = "outline"
 
 [system.monitor]
