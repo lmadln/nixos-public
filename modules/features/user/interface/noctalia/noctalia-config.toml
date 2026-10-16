@@ -221,9 +221,18 @@ offset_x = 8
 
 [osd]
 background_opacity = 0.79999998211860657
+hide_delay_ms = 800
+offset_y = 40
+position = "bottom_center"
+
+    [osd.kinds]
+    keyboard_backlight = false
+    keyboard_layout = false
+    lock_keys = false
+    media = false
 
 [plugin_settings."noctalia/mpvpaper"]
-video_directory = "/home/alex/Downloads"
+video_directory = "/home/alex/Pictures/wallpapers"
 
 [plugin_settings."noctalia/timer"]
 alarm = true
@@ -284,13 +293,6 @@ telemetry_enabled = false
         countdown_seconds = 0.0
         enabled = true
         shortcut = "1"
-        variant = "default"
-
-        [[shell.session.actions]]
-        action = "logout"
-        countdown_seconds = 0.0
-        enabled = true
-        shortcut = "2"
         variant = "default"
 
         [[shell.session.actions]]
