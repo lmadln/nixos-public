@@ -33,6 +33,9 @@
           pkgs.satty
           pkgs.hyprpicker
 
+          pkgs.glib
+          pkgs.gsettings-desktop-schemas
+
           (pkgs.writeShellScriptBin "toggle_workspace" (builtins.readFile ./scripts/toggle_workspace.sh))
           (pkgs.writeShellScriptBin "niri_panic" (builtins.readFile ./scripts/panic.sh))
         ];
