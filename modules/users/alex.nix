@@ -53,6 +53,7 @@
         pkgs.atril       # [.pdf, .djvu] viewer
         pkgs.abiword     # [.docx] editor
 	pkgs.krita
+        pkgs.beeref
 
         pkgs.pavucontrol
         pkgs.pamixer
