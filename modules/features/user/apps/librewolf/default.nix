@@ -32,6 +32,7 @@
                 "https://youtube.com"
                 "https://telegram.org"
                 "https://web.telegram.org"
+                "https://github.com"
               ];
             };
           };
@@ -175,10 +176,11 @@
               
               "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
               
-              "network.proxy.type" = 1;
-              "network.proxy.socks" = "127.0.0.1";
-              "network.proxy.socks_port" = 10808;
-              "network.proxy.socks_remote_dns" = true;
+              "network.proxy.type" = 5;
+              #"network.proxy.type" = 1;
+              #"network.proxy.socks" = "127.0.0.1";
+              #"network.proxy.socks_port" = 10808;
+              #"network.proxy.socks_remote_dns" = true;
             };
                         
             search = {

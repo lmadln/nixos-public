@@ -150,10 +150,11 @@
               "toolkit.telemetry.enabled" = false;
               "geo.enabled" = false;
               
-              "network.proxy.type" = 1;
-              "network.proxy.socks" = "127.0.0.1";
-              "network.proxy.socks_port" = 10808;
-              "network.proxy.socks_remote_dns" = true;
+              "network.proxy.type" = 5;
+              #"network.proxy.type" = 1;
+              #"network.proxy.socks" = "127.0.0.1";
+              #"network.proxy.socks_port" = 10808;
+              #"network.proxy.socks_remote_dns" = true;
 
               "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
             };
