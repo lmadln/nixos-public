@@ -27,13 +27,14 @@
     user.apps.kitty.users = [ "${username}" ];
     user.apps.firefox.users = [ "${username}" ];
     user.apps.librewolf.users = [ "${username}" ];
-    user.apps.v2rayn.users = [ "${username}" ];
     user.apps.obs-studio.users = [ "${username}" ];
     user.apps.vscode.users = [ "${username}" ];
     user.apps.mpv.users = [ "${username}" ];
     user.apps.imv.users = [ "${username}" ];
     user.apps.spotify.users = [ "${username}" ];
     user.apps.amberol.users = [ "${username}" ];
+
+    user.apps.happ.users = [ "${username}" ];
 
     user.apps.prismlauncher.users = lib.mkIf (host == "pc") [ "${username}" ];
 
@@ -62,7 +63,7 @@
       ++ lib.optionals (host == "pc") [
         pkgs.blender
         pkgs.osu-lazer-bin
-      ];
+      ];      
     };
   };
 }
