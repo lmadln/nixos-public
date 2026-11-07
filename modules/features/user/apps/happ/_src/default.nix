@@ -26,6 +26,7 @@ pkgs.stdenv.mkDerivation rec {
     e2fsprogs
     libxkbcommon
     xkeyboard-config
+    libgpg-error
   ];
 
   unpackPhase = ''
