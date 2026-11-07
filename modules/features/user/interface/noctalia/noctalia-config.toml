@@ -6,11 +6,10 @@ capsule_opacity = 0.099999997764825821
 capsule_radius = 10
 capsule_thickness = 0.64999998919665813
 end = [
-    "widget",
-    "ambient-sounds",
     "clipboard",
     "notes",
     "bar",
+    "network",
     "battery",
     "brightness",
     "volume",
@@ -111,20 +110,24 @@ edge_smoothness = 0.4999999888241291
 tint_intensity = 0.39999999105930328
 transition = [ "honeycomb" ]
 transition_duration = 1000
-wallpaper = "/home/alex/Pictures/Wallpapers/wallpaper9.png"
+wallpaper = "/home/alex/Pictures/Wallpapers/wallpaper24.png"
 
 [lockscreen_widgets]
 enabled = true
 schema_version = 2
 widget_order = [
+    "lockscreen-login-box@eDP-1",
     "lockscreen-login-box@DP-1",
     "lockscreen-widget-0000000000000001",
     "lockscreen-widget-0000000000000006",
-    "lockscreen-widget-0000000000000009"
+    "lockscreen-widget-0000000000000009",
+    "lockscreen-widget-000000000000000a",
+    "lockscreen-widget-000000000000000b",
+    "lockscreen-widget-000000000000000c"
 ]
 
     [lockscreen_widgets.grid]
-    cell_size = 64
+    cell_size = 32
     major_interval = 4
     visible = true
 
@@ -154,6 +157,33 @@ widget_order = [
         show_session_buttons = true
         show_unlock_hint = false
         show_weather = false
+
+    [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
+    box_height = 70.0
+    box_width = 400.0
+    cx = 960.0
+    cy = 898.0
+    output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "compact"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = false
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = false
+        show_weather = true
 
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
     box_height = 1024.0
@@ -211,6 +241,54 @@ widget_order = [
         glyph = "suspend"
         variant = "default"
 
+    [lockscreen_widgets.widget.lockscreen-widget-000000000000000a]
+    box_height = 0.0
+    box_width = 0.0
+    cx = 1876.0
+    cy = 40.0
+    output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "button"
+
+        [lockscreen_widgets.widget.lockscreen-widget-000000000000000a.settings]
+        background = true
+        command = "systemctl poweroff"
+        glyph = "power"
+        variant = "default"
+
+    [lockscreen_widgets.widget.lockscreen-widget-000000000000000b]
+    box_height = 0.0
+    box_width = 0.0
+    cx = 1824.0
+    cy = 40.0
+    output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "button"
+
+        [lockscreen_widgets.widget.lockscreen-widget-000000000000000b.settings]
+        background = true
+        command = "systemctl suspend"
+        glyph = "suspend"
+        variant = "default"
+
+    [lockscreen_widgets.widget.lockscreen-widget-000000000000000c]
+    box_height = 640.0
+    box_width = 1280.0
+    cx = 960.0
+    cy = 476.0
+    output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "clock"
+
+        [lockscreen_widgets.widget.lockscreen-widget-000000000000000c.settings]
+        background = false
+
 [nightlight]
 enabled = true
 
@@ -247,9 +325,7 @@ enabled = [
     "noctalia/notes",
     "noctalia/translator",
     "noctalia/mpvpaper",
-    "alexander/screen-toolkit",
-    "luochen1990/niri-ribbon",
-    "reaperhound/ambient-sounds"
+    "luochen1990/niri-ribbon"
 ]
 
 [shell]
@@ -332,13 +408,16 @@ directory = "/home/alex/Pictures/Wallpapers"
 transition = [ "fade" ]
 
     [wallpaper.default]
-    path = "/home/alex/Pictures/Wallpapers/wallpaper1.png"
+    path = "/home/alex/Pictures/Wallpapers/wallpaper2.jpg"
 
     [wallpaper.last]
-    path = "/home/alex/Pictures/Wallpapers/wallpaper1.png"
+    path = "/home/alex/Pictures/Wallpapers/wallpaper2.jpg"
 
     [wallpaper.monitors.DP-1]
     path = "/home/alex/Pictures/Wallpapers/wallpaper1.png"
+
+    [wallpaper.monitors.eDP-1]
+    path = "/home/alex/Pictures/Wallpapers/wallpaper2.jpg"
 
 [weather]
 enabled = false
@@ -365,6 +444,9 @@ glyph = "snowflake"
 
 [widget.mpvpaper]
 type = "noctalia/mpvpaper:mpvpaper"
+
+[widget.network]
+show_label = false
 
 [widget.notes]
 type = "noctalia/notes:notes"
