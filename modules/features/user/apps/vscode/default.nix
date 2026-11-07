@@ -23,12 +23,12 @@
               ms-vscode.cpptools
               marketplace.kdl-org.kdl
               mkhl.direnv
-              marketplace.noctalia.noctaliatheme
+              # marketplace.noctalia.noctaliatheme
             ];
             
             userSettings = {
               "window.titleBarStyle" = "custom";
-              "workbench.colorTheme" = "NoctaliaTheme";
+              "workbench.colorTheme" = "Dark Modern";
               "editor.fontLigatures" = true;
               "jupyter.askForKernelRestart" = false;
               "C_Cpp.intelliSenseEngine" = "default";
