@@ -29,7 +29,8 @@ pkgs.appimageTools.wrapType2 {
   '';
 
   extraPkgs = pkgs: [ 
-    pkgs.libayatana-appindicator 
+    pkgs.libayatana-appindicator
+    pkgs.libgpg-error
   ];
 
   profile = ''
