@@ -23,7 +23,7 @@
         after = [ "network.target" ];
         serviceConfig = {
           Type = "simple";
-          ExecStart = "${happPkg}/opt/happ/bin/happd";
+          ExecStart = "${happPkg}/bin/happd";
           Restart = "on-failure";
           RestartSec = "5s";
           KillMode = "mixed";
